@@ -420,6 +420,21 @@ Context.prototype.skip = function() {
 };
 
 /**
+ * Allow a number of retries on failed tests
+ *
+ * @api private
+ * @param {number} n
+ * @return {Context} self
+ */
+Context.prototype.retries = function(n) {
+  if (!arguments.length) {
+    return this.runnable().retries();
+  }
+  this.runnable().retries(n);
+  return this;
+};
+
+/**
  * Inspect the context void of `._runnable`.
  *
  * @api private
@@ -559,7 +574,7 @@ module.exports = function(suite) {
      * acting as a thunk.
      */
 
-    context.it = context.specify = function(title, fn) {
+    var it = context.it = context.specify = function(title, fn) {
       var suite = suites[0];
       if (suite.pending) {
         fn = null;
@@ -575,7 +590,7 @@ module.exports = function(suite) {
      */
 
     context.it.only = function(title, fn) {
-      var test = context.it(title, fn);
+      var test = it(title, fn);
       var reString = '^' + escapeRe(test.fullTitle()) + '$';
       mocha.grep(new RegExp(reString));
       return test;
@@ -587,6 +602,13 @@ module.exports = function(suite) {
 
     context.xit = context.xspecify = context.it.skip = function(title) {
       context.it(title);
+    };
+
+    /**
+     * Number of attempts to retry.
+     */
+    context.it.retries = function(n) {
+      context.retries(n);
     };
   });
 };
@@ -664,6 +686,15 @@ module.exports = function(suites, context) {
        */
       skip: function(title) {
         context.test(title);
+      },
+
+      /**
+       * Number of retry attempts
+       *
+       * @param {string} n
+       */
+      retries: function(n) {
+        context.retries(n);
       }
     }
   };
@@ -725,7 +756,7 @@ module.exports = function(suite) {
       } else {
         suite = Suite.create(suites[0], key);
         suites.unshift(suite);
-        visit(obj[key]);
+        visit(obj[key], file);
         suites.shift();
       }
     }
@@ -830,6 +861,7 @@ module.exports = function(suite) {
     };
 
     context.test.skip = common.test.skip;
+    context.test.retries = common.test.retries;
   });
 };
 
@@ -937,6 +969,7 @@ module.exports = function(suite) {
     };
 
     context.test.skip = common.test.skip;
+    context.test.retries = common.test.retries;
   });
 };
 
@@ -1006,6 +1039,7 @@ function image(name) {
  *   - `reporter` reporter instance, defaults to `mocha.reporters.spec`
  *   - `globals` array of accepted globals
  *   - `timeout` timeout in milliseconds
+ *   - `retries` number of times to retry failed tests
  *   - `bail` bail on the first test failure
  *   - `slow` milliseconds to wait before considering a test slow
  *   - `ignoreLeaks` ignore global leaks
@@ -1029,8 +1063,11 @@ function Mocha(options) {
   this.ui(options.ui);
   this.bail(options.bail);
   this.reporter(options.reporter, options.reporterOptions);
-  if (options.timeout != null) {
+  if (typeof options.timeout !== 'undefined' && options.timeout !== null) {
     this.timeout(options.timeout);
+  }
+  if (typeof options.retries !== 'undefined' && options.retries !== null) {
+    this.retries(options.retries);
   }
   this.useColors(options.useColors);
   if (options.enableTimeouts !== null) {
@@ -1153,14 +1190,13 @@ Mocha.prototype.ui = function(name) {
 Mocha.prototype.loadFiles = function(fn) {
   var self = this;
   var suite = this.suite;
-  var pending = this.files.length;
   this.files.forEach(function(file) {
     file = path.resolve(file);
     suite.emit('pre-require', global, file, self);
     suite.emit('require', require(file), file, self);
     suite.emit('post-require', global, file, self);
-    --pending || (fn && fn());
   });
+  fn && fn();
 };
 
 /**
@@ -1313,6 +1349,18 @@ Mocha.prototype.useInlineDiffs = function(inlineDiffs) {
  */
 Mocha.prototype.timeout = function(timeout) {
   this.suite.timeout(timeout);
+  return this;
+};
+
+/**
+ * Set the number of times to retry failed tests.
+ *
+ * @param {Number} retry times
+ * @return {Mocha}
+ * @api public
+ */
+Mocha.prototype.retries = function(n) {
+  this.suite.retries(n);
   return this;
 };
 
@@ -1751,7 +1799,14 @@ exports.list = function(failures) {
     // msg
     var msg;
     var err = test.err;
-    var message = err.message || '';
+    var message;
+    if (err.message) {
+      message = err.message;
+    } else if (typeof err.inspect === 'function') {
+      message = err.inspect() + '';
+    } else {
+      message = '';
+    }
     var stack = err.stack || message;
     var index = stack.indexOf(message);
     var actual = err.actual;
@@ -1983,7 +2038,7 @@ function unifiedDiff(err, escape) {
     return indent + line;
   }
   function notBlank(line) {
-    return line != null;
+    return typeof line !== 'undefined' && line !== null;
   }
   var msg = diff.createPatch('string', err.actual, err.expected);
   var lines = msg.split('\n').splice(4);
@@ -2114,13 +2169,13 @@ function Doc(runner) {
 
   runner.on('pass', function(test) {
     console.log('%s  <dt>%s</dt>', indent(), utils.escape(test.title));
-    var code = utils.escape(utils.clean(test.fn.toString()));
+    var code = utils.escape(utils.clean(test.body));
     console.log('%s  <dd><pre><code>%s</code></pre></dd>', indent(), code);
   });
 
   runner.on('fail', function(test, err) {
     console.log('%s  <dt class="error">%s</dt>', indent(), utils.escape(test.title));
-    var code = utils.escape(utils.clean(test.fn.toString()));
+    var code = utils.escape(utils.clean(test.fn.body));
     console.log('%s  <dd class="error"><pre><code>%s</code></pre></dd>', indent(), code);
     console.log('%s  <dd class="error">%s</dd>', indent(), utils.escape(err));
   });
@@ -2389,7 +2444,10 @@ function HTML(runner) {
   });
 
   runner.on('fail', function(test) {
-    if (test.type === 'hook') {
+    // For type = 'test' its possible that the test failed due to multiple
+    // done() calls. So report the issue here.
+    if (test.type === 'hook'
+      || test.type === 'test') {
       runner.emit('test end', test);
     }
   });
@@ -2457,7 +2515,7 @@ function HTML(runner) {
         pre.style.display = pre.style.display === 'none' ? 'block' : 'none';
       });
 
-      var pre = fragment('<pre><code>%e</code></pre>', utils.clean(test.fn.toString()));
+      var pre = fragment('<pre><code>%e</code></pre>', utils.clean(test.body));
       el.appendChild(pre);
       pre.style.display = 'none';
     }
@@ -2755,6 +2813,7 @@ function coverage(filename, data) {
 function clean(test) {
   return {
     duration: test.duration,
+    currentRetry: test.currentRetry(),
     fullTitle: test.fullTitle(),
     title: test.title
   };
@@ -2819,7 +2878,8 @@ function clean(test) {
   return {
     title: test.title,
     fullTitle: test.fullTitle(),
-    duration: test.duration
+    duration: test.duration,
+    currentRetry: test.currentRetry()
   };
 }
 
@@ -2897,6 +2957,7 @@ function clean(test) {
     title: test.title,
     fullTitle: test.fullTitle(),
     duration: test.duration,
+    currentRetry: test.currentRetry(),
     err: errorJSON(test.err || {})
   };
 }
@@ -3120,7 +3181,7 @@ function Markdown(runner) {
     var key = SUITE_PREFIX + suite.title;
 
     obj = obj[key] = obj[key] || { suite: suite };
-    suite.suites.forEach(function() {
+    suite.suites.forEach(function(suite) {
       mapTOC(suite, obj);
     });
 
@@ -3164,7 +3225,7 @@ function Markdown(runner) {
   });
 
   runner.on('pass', function(test) {
-    var code = utils.clean(test.fn.toString());
+    var code = utils.clean(test.body);
     buf += test.title + '.\n';
     buf += '\n```js\n';
     buf += code + '\n';
@@ -3733,7 +3794,7 @@ function title(test) {
 }
 
 },{"./base":17}],34:[function(require,module,exports){
-(function (global){
+(function (process,global){
 /**
  * Module dependencies.
  */
@@ -3743,6 +3804,8 @@ var utils = require('../utils');
 var inherits = utils.inherits;
 var fs = require('fs');
 var escape = utils.escape;
+var mkdirp = require('mkdirp');
+var path = require('path');
 
 /**
  * Save timer references to avoid Sinon interfering (see GH-237).
@@ -3779,6 +3842,7 @@ function XUnit(runner, options) {
     if (!fs.createWriteStream) {
       throw new Error('file output not supported in browser');
     }
+    mkdirp.sync(path.dirname(options.reporterOptions.output));
     self.fileStream = fs.createWriteStream(options.reporterOptions.output);
   }
 
@@ -3814,6 +3878,11 @@ function XUnit(runner, options) {
 }
 
 /**
+ * Inherit from `Base.prototype`.
+ */
+inherits(XUnit, Base);
+
+/**
  * Override done to close the stream (if it's a file).
  *
  * @param failures
@@ -3830,11 +3899,6 @@ XUnit.prototype.done = function(failures, fn) {
 };
 
 /**
- * Inherit from `Base.prototype`.
- */
-inherits(XUnit, Base);
-
-/**
  * Write out the given line.
  *
  * @param {string} line
@@ -3842,6 +3906,8 @@ inherits(XUnit, Base);
 XUnit.prototype.write = function(line) {
   if (this.fileStream) {
     this.fileStream.write(line + '\n');
+  } else if (typeof process === 'object' && process.stdout) {
+    process.stdout.write(line + '\n');
   } else {
     console.log(line);
   }
@@ -3904,8 +3970,8 @@ function cdata(str) {
   return '<![CDATA[' + escape(str) + ']]>';
 }
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../utils":39,"./base":17,"fs":41}],35:[function(require,module,exports){
+}).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../utils":39,"./base":17,"_process":51,"fs":41,"mkdirp":70,"path":41}],35:[function(require,module,exports){
 (function (global){
 /**
  * Module dependencies.
@@ -3961,6 +4027,8 @@ function Runnable(title, fn) {
   this._enableTimeouts = true;
   this.timedOut = false;
   this._trace = new Error('done() called multiple times');
+  this._retries = -1;
+  this._currentRetry = 0;
 }
 
 /**
@@ -4038,6 +4106,30 @@ Runnable.prototype.skip = function() {
 };
 
 /**
+ * Set number of retries.
+ *
+ * @api private
+ */
+Runnable.prototype.retries = function(n) {
+  if (!arguments.length) {
+    return this._retries;
+  }
+  this._retries = n;
+};
+
+/**
+ * Get current retry
+ *
+ * @api private
+ */
+Runnable.prototype.currentRetry = function(n) {
+  if (!arguments.length) {
+    return this._currentRetry;
+  }
+  this._currentRetry = n;
+};
+
+/**
  * Return the full title generated by recursively concatenating the parent's
  * full title.
  *
@@ -4107,6 +4199,9 @@ Runnable.prototype.resetTimeout = function() {
  * @param {string[]} globals
  */
 Runnable.prototype.globals = function(globals) {
+  if (!arguments.length) {
+    return this._allowedGlobals;
+  }
   this._allowedGlobals = globals;
 };
 
@@ -4198,6 +4293,9 @@ Runnable.prototype.run = function(fn) {
       result
         .then(function() {
           done();
+          // Return null so libraries like bluebird do not warn about
+          // subsequently constructed Promises.
+          return null;
         },
         function(reason) {
           done(reason || new Error('Promise rejected with no or falsy reason'));
@@ -4240,6 +4338,7 @@ var Pending = require('./pending');
 var utils = require('./utils');
 var inherits = utils.inherits;
 var debug = require('debug')('mocha:runner');
+var Runnable = require('./runnable');
 var filter = utils.filter;
 var indexOf = utils.indexOf;
 var keys = utils.keys;
@@ -4247,6 +4346,7 @@ var stackFilter = utils.stackTraceFilter();
 var stringify = utils.stringify;
 var type = utils.type;
 var undefinedError = utils.undefinedError;
+var isArray = utils.isArray;
 
 /**
  * Non-enumerable globals.
@@ -4297,6 +4397,7 @@ function Runner(suite, delay) {
   this._abort = false;
   this._delay = delay;
   this.suite = suite;
+  this.started = false;
   this.total = suite.total();
   this.failures = 0;
   this.on('test end', function(test) {
@@ -4519,12 +4620,13 @@ Runner.prototype.hook = function(name, fn) {
 
     self.emit('hook', hook);
 
-    hook.on('error', function(err) {
-      self.failHook(hook, err);
-    });
+    if (!hook.listeners('error').length) {
+      hook.on('error', function(err) {
+        self.failHook(hook, err);
+      });
+    }
 
     hook.run(function(err) {
-      hook.removeAllListeners('error');
       var testError = hook.error();
       if (testError) {
         self.fail(self.test, testError);
@@ -4619,7 +4721,8 @@ Runner.prototype.hookDown = function(name, fn) {
 Runner.prototype.parents = function() {
   var suite = this.suite;
   var suites = [];
-  while (suite = suite.parent) {
+  while (suite.parent) {
+    suite = suite.parent;
     suites.push(suite);
   }
   return suites;
@@ -4735,8 +4838,12 @@ Runner.prototype.runTests = function(suite, fn) {
       return;
     }
 
+    function parentPending(suite) {
+      return suite.pending || (suite.parent && parentPending(suite.parent));
+    }
+
     // pending
-    if (test.pending) {
+    if (test.pending || parentPending(test.parent)) {
       self.emit('pending', test);
       self.emit('test end', test);
       return next();
@@ -4756,10 +4863,19 @@ Runner.prototype.runTests = function(suite, fn) {
       self.currentRunnable = self.test;
       self.runTest(function(err) {
         test = self.test;
-
         if (err) {
+          var retry = test.currentRetry();
           if (err instanceof Pending) {
+            test.pending = true;
             self.emit('pending', test);
+          } else if (retry < test.retries()) {
+            var clonedTest = test.clone();
+            clonedTest.currentRetry(retry + 1);
+            tests.unshift(clonedTest);
+
+            // Early return + hook trigger so that it doesn't
+            // increment the count wrong
+            return self.hookUp('afterEach', next);
           } else {
             self.fail(test, err);
           }
@@ -4850,6 +4966,10 @@ Runner.prototype.runSuite = function(suite, fn) {
       // mark that the afterAll block has been called once
       // and so can be skipped if there is an error in it.
       afterAllHookCalled = true;
+
+      // remove reference to test
+      delete self.test;
+
       self.hook('afterAll', function() {
         self.emit('suite end', suite);
         fn(errSuite);
@@ -4885,7 +5005,20 @@ Runner.prototype.uncaught = function(err) {
   err.uncaught = true;
 
   var runnable = this.currentRunnable;
+
   if (!runnable) {
+    runnable = new Runnable('Uncaught error outside test suite');
+    runnable.parent = this.suite;
+
+    if (this.started) {
+      this.fail(runnable, err);
+    } else {
+      // Can't recover from this failure
+      this.emit('start');
+      this.fail(runnable, err);
+      this.emit('end');
+    }
+
     return;
   }
 
@@ -4924,6 +5057,44 @@ Runner.prototype.uncaught = function(err) {
 };
 
 /**
+ * Cleans up the references to all the deferred functions
+ * (before/after/beforeEach/afterEach) and tests of a Suite.
+ * These must be deleted otherwise a memory leak can happen,
+ * as those functions may reference variables from closures,
+ * thus those variables can never be garbage collected as long
+ * as the deferred functions exist.
+ *
+ * @param {Suite} suite
+ */
+function cleanSuiteReferences(suite) {
+  function cleanArrReferences(arr) {
+    for (var i = 0; i < arr.length; i++) {
+      delete arr[i].fn;
+    }
+  }
+
+  if (isArray(suite._beforeAll)) {
+    cleanArrReferences(suite._beforeAll);
+  }
+
+  if (isArray(suite._beforeEach)) {
+    cleanArrReferences(suite._beforeEach);
+  }
+
+  if (isArray(suite._afterAll)) {
+    cleanArrReferences(suite._afterAll);
+  }
+
+  if (isArray(suite._afterEach)) {
+    cleanArrReferences(suite._afterEach);
+  }
+
+  for (var i = 0; i < suite.tests.length; i++) {
+    delete suite.tests[i].fn;
+  }
+}
+
+/**
  * Run the root suite and invoke `fn(failures)`
  * on completion.
  *
@@ -4944,6 +5115,7 @@ Runner.prototype.run = function(fn) {
   }
 
   function start() {
+    self.started = true;
     self.emit('start');
     self.runSuite(rootSuite, function() {
       debug('finished running');
@@ -4952,6 +5124,9 @@ Runner.prototype.run = function(fn) {
   }
 
   debug('start');
+
+  // references cleanup to avoid memory leaks
+  this.on('suite end', cleanSuiteReferences);
 
   // callback
   this.on('end', function() {
@@ -5039,7 +5214,8 @@ function filterLeaks(ok, globals) {
  */
 function extraGlobals() {
   if (typeof process === 'object' && typeof process.version === 'string') {
-    var nodeVersion = process.version.split('.').reduce(function(a, v) {
+    var parts = process.version.split('.');
+    var nodeVersion = utils.reduce(parts, function(a, v) {
       return a << 8 | v;
     });
 
@@ -5054,7 +5230,7 @@ function extraGlobals() {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./pending":16,"./utils":39,"_process":51,"debug":2,"events":3}],37:[function(require,module,exports){
+},{"./pending":16,"./runnable":35,"./utils":39,"_process":51,"debug":2,"events":3}],37:[function(require,module,exports){
 /**
  * Module dependencies.
  */
@@ -5117,6 +5293,7 @@ function Suite(title, parentContext) {
   this._enableTimeouts = true;
   this._slow = 75;
   this._bail = false;
+  this._retries = -1;
   this.delayed = false;
 }
 
@@ -5136,6 +5313,7 @@ Suite.prototype.clone = function() {
   debug('clone');
   suite.ctx = this.ctx;
   suite.timeout(this.timeout());
+  suite.retries(this.retries());
   suite.enableTimeouts(this.enableTimeouts());
   suite.slow(this.slow());
   suite.bail(this.bail());
@@ -5161,6 +5339,22 @@ Suite.prototype.timeout = function(ms) {
   }
   debug('timeout %d', ms);
   this._timeout = parseInt(ms, 10);
+  return this;
+};
+
+/**
+ * Set number of times to retry a failed test.
+ *
+ * @api private
+ * @param {number|string} n
+ * @return {Suite|number} for chaining
+ */
+Suite.prototype.retries = function(n) {
+  if (!arguments.length) {
+    return this._retries;
+  }
+  debug('retries %d', n);
+  this._retries = parseInt(n, 10) || 0;
   return this;
 };
 
@@ -5236,6 +5430,7 @@ Suite.prototype.beforeAll = function(title, fn) {
   var hook = new Hook(title, fn);
   hook.parent = this;
   hook.timeout(this.timeout());
+  hook.retries(this.retries());
   hook.enableTimeouts(this.enableTimeouts());
   hook.slow(this.slow());
   hook.ctx = this.ctx;
@@ -5265,6 +5460,7 @@ Suite.prototype.afterAll = function(title, fn) {
   var hook = new Hook(title, fn);
   hook.parent = this;
   hook.timeout(this.timeout());
+  hook.retries(this.retries());
   hook.enableTimeouts(this.enableTimeouts());
   hook.slow(this.slow());
   hook.ctx = this.ctx;
@@ -5294,6 +5490,7 @@ Suite.prototype.beforeEach = function(title, fn) {
   var hook = new Hook(title, fn);
   hook.parent = this;
   hook.timeout(this.timeout());
+  hook.retries(this.retries());
   hook.enableTimeouts(this.enableTimeouts());
   hook.slow(this.slow());
   hook.ctx = this.ctx;
@@ -5323,6 +5520,7 @@ Suite.prototype.afterEach = function(title, fn) {
   var hook = new Hook(title, fn);
   hook.parent = this;
   hook.timeout(this.timeout());
+  hook.retries(this.retries());
   hook.enableTimeouts(this.enableTimeouts());
   hook.slow(this.slow());
   hook.ctx = this.ctx;
@@ -5341,6 +5539,7 @@ Suite.prototype.afterEach = function(title, fn) {
 Suite.prototype.addSuite = function(suite) {
   suite.parent = this;
   suite.timeout(this.timeout());
+  suite.retries(this.retries());
   suite.enableTimeouts(this.enableTimeouts());
   suite.slow(this.slow());
   suite.bail(this.bail());
@@ -5359,6 +5558,7 @@ Suite.prototype.addSuite = function(suite) {
 Suite.prototype.addTest = function(test) {
   test.parent = this;
   test.timeout(this.timeout());
+  test.retries(this.retries());
   test.enableTimeouts(this.enableTimeouts());
   test.slow(this.slow());
   test.ctx = this.ctx;
@@ -5446,12 +5646,27 @@ function Test(title, fn) {
   Runnable.call(this, title, fn);
   this.pending = !fn;
   this.type = 'test';
+  this.body = (fn || '').toString();
 }
 
 /**
  * Inherit from `Runnable.prototype`.
  */
 inherits(Test, Runnable);
+
+Test.prototype.clone = function() {
+  var test = new Test(this.title, this.fn);
+  test.timeout(this.timeout());
+  test.slow(this.slow());
+  test.enableTimeouts(this.enableTimeouts());
+  test.retries(this.retries());
+  test.currentRetry(this.currentRetry());
+  test.globals(this.globals());
+  test.parent = this.parent;
+  test.file = this.file;
+  test.ctx = this.ctx;
+  return test;
+};
 
 },{"./runnable":35,"./utils":39}],39:[function(require,module,exports){
 (function (process,Buffer){
@@ -5644,6 +5859,8 @@ var isArray = typeof Array.isArray === 'function' ? Array.isArray : function(obj
   return Object.prototype.toString.call(obj) === '[object Array]';
 };
 
+exports.isArray = isArray;
+
 /**
  * Buffer.prototype.toJSON polyfill.
  *
@@ -5718,7 +5935,7 @@ exports.slug = function(str) {
 exports.clean = function(str) {
   str = str
     .replace(/\r\n?|[\n\u2028\u2029]/g, '\n').replace(/^\uFEFF/, '')
-    .replace(/^function *\(.*\)\s*{|\(.*\) *=> *{?/, '')
+    .replace(/^function *\(.*\)\s*\{|\(.*\) *=> *\{?/, '')
     .replace(/\s+\}$/, '');
 
   var spaces = str.match(/^\n?( *)/)[1].length;
@@ -6055,7 +6272,7 @@ exports.canonicalize = function(value, stack) {
       canonicalizedObj = value;
       break;
     default:
-      canonicalizedObj = value.toString();
+      canonicalizedObj = value + '';
   }
 
   return canonicalizedObj;
@@ -6146,7 +6363,7 @@ exports.getError = function(err) {
  * @description
  * When invoking this function you get a filter function that get the Error.stack as an input,
  * and return a prettify output.
- * (i.e: strip Mocha, node_modules, bower and componentJS from stack trace).
+ * (i.e: strip Mocha and internal node functions from stack trace).
  * @returns {Function}
  */
 exports.stackTraceFilter = function() {
@@ -6158,14 +6375,10 @@ exports.stackTraceFilter = function() {
       : (typeof location === 'undefined' ? window.location : location).href.replace(/\/[^\/]*$/, '/');
 
   function isMochaInternal(line) {
-    return (~line.indexOf('node_modules' + slash + 'mocha'))
-      || (~line.indexOf('components' + slash + 'mochajs'))
-      || (~line.indexOf('components' + slash + 'mocha'));
-  }
-
-  // node_modules, bower, componentJS
-  function isBrowserModule(line) {
-    return (~line.indexOf('node_modules')) || (~line.indexOf('components'));
+    return (~line.indexOf('node_modules' + slash + 'mocha' + slash))
+      || (~line.indexOf('components' + slash + 'mochajs' + slash))
+      || (~line.indexOf('components' + slash + 'mocha' + slash))
+      || (~line.indexOf(slash + 'mocha.js'));
   }
 
   function isNodeInternal(line) {
@@ -6181,11 +6394,11 @@ exports.stackTraceFilter = function() {
     stack = stack.split('\n');
 
     stack = exports.reduce(stack, function(list, line) {
-      if (is.node && (isMochaInternal(line) || isNodeInternal(line))) {
+      if (isMochaInternal(line)) {
         return list;
       }
 
-      if (is.browser && (isBrowserModule(line))) {
+      if (is.node && isNodeInternal(line)) {
         return list;
       }
 
@@ -6259,28 +6472,35 @@ var rootParent = {}
  * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
  * Opera 11.6+, iOS 4.2+.
  *
+ * Due to various browser bugs, sometimes the Object implementation will be used even
+ * when the browser supports typed arrays.
+ *
  * Note:
  *
- * - Implementation must support adding new properties to `Uint8Array` instances.
- *   Firefox 4-29 lacked support, fixed in Firefox 30+.
- *   See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438.
+ *   - Firefox 4-29 lacks support for adding new properties to `Uint8Array` instances,
+ *     See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438.
  *
- *  - Chrome 9-10 is missing the `TypedArray.prototype.subarray` function.
+ *   - Safari 5-7 lacks support for changing the `Object.prototype.constructor` property
+ *     on objects.
  *
- *  - IE10 has a broken `TypedArray.prototype.subarray` function which returns arrays of
- *    incorrect length in some situations.
+ *   - Chrome 9-10 is missing the `TypedArray.prototype.subarray` function.
  *
- * We detect these buggy browsers and set `Buffer.TYPED_ARRAY_SUPPORT` to `false` so they will
- * get the Object implementation, which is slower but will work correctly.
+ *   - IE10 has a broken `TypedArray.prototype.subarray` function which returns arrays of
+ *     incorrect length in some situations.
+
+ * We detect these buggy browsers and set `Buffer.TYPED_ARRAY_SUPPORT` to `false` so they
+ * get the Object implementation, which is slower but behaves correctly.
  */
 Buffer.TYPED_ARRAY_SUPPORT = (function () {
+  function Bar () {}
   try {
-    var buf = new ArrayBuffer(0)
-    var arr = new Uint8Array(buf)
+    var arr = new Uint8Array(1)
     arr.foo = function () { return 42 }
+    arr.constructor = Bar
     return arr.foo() === 42 && // typed array instances can be augmented
+        arr.constructor === Bar && // constructor can be set
         typeof arr.subarray === 'function' && // chrome 9-10 lack `subarray`
-        new Uint8Array(1).subarray(1, 1).byteLength === 0 // ie10 has broken `subarray`
+        arr.subarray(1, 1).byteLength === 0 // ie10 has broken `subarray`
   } catch (e) {
     return false
   }
@@ -6358,8 +6578,13 @@ function fromObject (that, object) {
     throw new TypeError('must start with number, buffer, array or string')
   }
 
-  if (typeof ArrayBuffer !== 'undefined' && object.buffer instanceof ArrayBuffer) {
-    return fromTypedArray(that, object)
+  if (typeof ArrayBuffer !== 'undefined') {
+    if (object.buffer instanceof ArrayBuffer) {
+      return fromTypedArray(that, object)
+    }
+    if (object instanceof ArrayBuffer) {
+      return fromArrayBuffer(that, object)
+    }
   }
 
   if (object.length) return fromArrayLike(that, object)
@@ -6392,6 +6617,18 @@ function fromTypedArray (that, array) {
   // of the old Buffer constructor.
   for (var i = 0; i < length; i += 1) {
     that[i] = array[i] & 255
+  }
+  return that
+}
+
+function fromArrayBuffer (that, array) {
+  if (Buffer.TYPED_ARRAY_SUPPORT) {
+    // Return an augmented `Uint8Array` instance, for best performance
+    array.byteLength
+    that = Buffer._augment(new Uint8Array(array))
+  } else {
+    // Fallback: Return an object instance of the Buffer class
+    that = fromTypedArray(that, new Uint8Array(array))
   }
   return that
 }
@@ -6513,8 +6750,6 @@ Buffer.concat = function concat (list, length) {
 
   if (list.length === 0) {
     return new Buffer(0)
-  } else if (list.length === 1) {
-    return list[0]
   }
 
   var i
@@ -6689,13 +6924,13 @@ Buffer.prototype.indexOf = function indexOf (val, byteOffset) {
   throw new TypeError('val must be string, number or Buffer')
 }
 
-// `get` will be removed in Node 0.13+
+// `get` is deprecated
 Buffer.prototype.get = function get (offset) {
   console.log('.get() is deprecated. Access using array indexes instead.')
   return this.readUInt8(offset)
 }
 
-// `set` will be removed in Node 0.13+
+// `set` is deprecated
 Buffer.prototype.set = function set (v, offset) {
   console.log('.set() is deprecated. Access using array indexes instead.')
   return this.writeUInt8(v, offset)
@@ -6836,20 +7071,99 @@ function base64Slice (buf, start, end) {
 }
 
 function utf8Slice (buf, start, end) {
-  var res = ''
-  var tmp = ''
   end = Math.min(buf.length, end)
+  var res = []
 
-  for (var i = start; i < end; i++) {
-    if (buf[i] <= 0x7F) {
-      res += decodeUtf8Char(tmp) + String.fromCharCode(buf[i])
-      tmp = ''
-    } else {
-      tmp += '%' + buf[i].toString(16)
+  var i = start
+  while (i < end) {
+    var firstByte = buf[i]
+    var codePoint = null
+    var bytesPerSequence = (firstByte > 0xEF) ? 4
+      : (firstByte > 0xDF) ? 3
+      : (firstByte > 0xBF) ? 2
+      : 1
+
+    if (i + bytesPerSequence <= end) {
+      var secondByte, thirdByte, fourthByte, tempCodePoint
+
+      switch (bytesPerSequence) {
+        case 1:
+          if (firstByte < 0x80) {
+            codePoint = firstByte
+          }
+          break
+        case 2:
+          secondByte = buf[i + 1]
+          if ((secondByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0x1F) << 0x6 | (secondByte & 0x3F)
+            if (tempCodePoint > 0x7F) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 3:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0xC | (secondByte & 0x3F) << 0x6 | (thirdByte & 0x3F)
+            if (tempCodePoint > 0x7FF && (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF)) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 4:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          fourthByte = buf[i + 3]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80 && (fourthByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0x12 | (secondByte & 0x3F) << 0xC | (thirdByte & 0x3F) << 0x6 | (fourthByte & 0x3F)
+            if (tempCodePoint > 0xFFFF && tempCodePoint < 0x110000) {
+              codePoint = tempCodePoint
+            }
+          }
+      }
     }
+
+    if (codePoint === null) {
+      // we did not generate a valid codePoint so insert a
+      // replacement char (U+FFFD) and advance only 1 byte
+      codePoint = 0xFFFD
+      bytesPerSequence = 1
+    } else if (codePoint > 0xFFFF) {
+      // encode to utf16 (surrogate pair dance)
+      codePoint -= 0x10000
+      res.push(codePoint >>> 10 & 0x3FF | 0xD800)
+      codePoint = 0xDC00 | codePoint & 0x3FF
+    }
+
+    res.push(codePoint)
+    i += bytesPerSequence
   }
 
-  return res + decodeUtf8Char(tmp)
+  return decodeCodePointsArray(res)
+}
+
+// Based on http://stackoverflow.com/a/22747272/680742, the browser with
+// the lowest limit is Chrome, with 0x10000 args.
+// We go 1 magnitude less, for safety
+var MAX_ARGUMENTS_LENGTH = 0x1000
+
+function decodeCodePointsArray (codePoints) {
+  var len = codePoints.length
+  if (len <= MAX_ARGUMENTS_LENGTH) {
+    return String.fromCharCode.apply(String, codePoints) // avoid extra slice()
+  }
+
+  // Decode in chunks to avoid "call stack size exceeded".
+  var res = ''
+  var i = 0
+  while (i < len) {
+    res += String.fromCharCode.apply(
+      String,
+      codePoints.slice(i, i += MAX_ARGUMENTS_LENGTH)
+    )
+  }
+  return res
 }
 
 function asciiSlice (buf, start, end) {
@@ -7384,9 +7698,16 @@ Buffer.prototype.copy = function copy (target, targetStart, start, end) {
   }
 
   var len = end - start
+  var i
 
-  if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
-    for (var i = 0; i < len; i++) {
+  if (this === target && start < targetStart && targetStart < end) {
+    // descending copy from end
+    for (i = len - 1; i >= 0; i--) {
+      target[i + targetStart] = this[i + start]
+    }
+  } else if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
+    // ascending copy from start
+    for (i = 0; i < len; i++) {
       target[i + targetStart] = this[i + start]
     }
   } else {
@@ -7462,7 +7783,7 @@ Buffer._augment = function _augment (arr) {
   // save reference to original Uint8Array set method before overwriting
   arr._set = arr.set
 
-  // deprecated, will be removed in node 0.13+
+  // deprecated
   arr.get = BP.get
   arr.set = BP.set
 
@@ -7518,7 +7839,7 @@ Buffer._augment = function _augment (arr) {
   return arr
 }
 
-var INVALID_BASE64_RE = /[^+\/0-9A-z\-]/g
+var INVALID_BASE64_RE = /[^+\/0-9A-Za-z-_]/g
 
 function base64clean (str) {
   // Node strips out invalid characters like \n and \t from the string, base64-js does not
@@ -7548,28 +7869,15 @@ function utf8ToBytes (string, units) {
   var length = string.length
   var leadSurrogate = null
   var bytes = []
-  var i = 0
 
-  for (; i < length; i++) {
+  for (var i = 0; i < length; i++) {
     codePoint = string.charCodeAt(i)
 
     // is surrogate component
     if (codePoint > 0xD7FF && codePoint < 0xE000) {
       // last char was a lead
-      if (leadSurrogate) {
-        // 2 leads in a row
-        if (codePoint < 0xDC00) {
-          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
-          leadSurrogate = codePoint
-          continue
-        } else {
-          // valid surrogate pair
-          codePoint = leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00 | 0x10000
-          leadSurrogate = null
-        }
-      } else {
+      if (!leadSurrogate) {
         // no lead yet
-
         if (codePoint > 0xDBFF) {
           // unexpected trail
           if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
@@ -7578,17 +7886,29 @@ function utf8ToBytes (string, units) {
           // unpaired lead
           if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
           continue
-        } else {
-          // valid lead
-          leadSurrogate = codePoint
-          continue
         }
+
+        // valid lead
+        leadSurrogate = codePoint
+
+        continue
       }
+
+      // 2 leads in a row
+      if (codePoint < 0xDC00) {
+        if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+        leadSurrogate = codePoint
+        continue
+      }
+
+      // valid surrogate pair
+      codePoint = leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00 | 0x10000
     } else if (leadSurrogate) {
       // valid bmp char, but last char was a lead
       if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
-      leadSurrogate = null
     }
+
+    leadSurrogate = null
 
     // encode utf8
     if (codePoint < 0x80) {
@@ -7607,7 +7927,7 @@ function utf8ToBytes (string, units) {
         codePoint >> 0x6 & 0x3F | 0x80,
         codePoint & 0x3F | 0x80
       )
-    } else if (codePoint < 0x200000) {
+    } else if (codePoint < 0x110000) {
       if ((units -= 4) < 0) break
       bytes.push(
         codePoint >> 0x12 | 0xF0,
@@ -7658,14 +7978,6 @@ function blitBuffer (src, dst, offset, length) {
     dst[i + offset] = src[i]
   }
   return i
-}
-
-function decodeUtf8Char (str) {
-  try {
-    return decodeURIComponent(str)
-  } catch (err) {
-    return String.fromCharCode(0xFFFD) // UTF 8 invalid char
-  }
 }
 
 },{"base64-js":44,"ieee754":45,"is-array":46}],44:[function(require,module,exports){
@@ -8328,7 +8640,9 @@ function drainQueue() {
         currentQueue = queue;
         queue = [];
         while (++queueIndex < len) {
-            currentQueue[queueIndex].run();
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
         }
         queueIndex = -1;
         len = queue.length;
@@ -8380,7 +8694,6 @@ process.binding = function (name) {
     throw new Error('process.binding is not supported');
 };
 
-// TODO(shtylman)
 process.cwd = function () { return '/' };
 process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
@@ -12128,6 +12441,108 @@ function growl(msg, options, fn) {
 
 }).call(this,require('_process'))
 },{"_process":51,"child_process":41,"fs":41,"os":50,"path":41}],70:[function(require,module,exports){
+(function (process){
+var path = require('path');
+var fs = require('fs');
+var _0777 = parseInt('0777', 8);
+
+module.exports = mkdirP.mkdirp = mkdirP.mkdirP = mkdirP;
+
+function mkdirP (p, opts, f, made) {
+    if (typeof opts === 'function') {
+        f = opts;
+        opts = {};
+    }
+    else if (!opts || typeof opts !== 'object') {
+        opts = { mode: opts };
+    }
+    
+    var mode = opts.mode;
+    var xfs = opts.fs || fs;
+    
+    if (mode === undefined) {
+        mode = _0777 & (~process.umask());
+    }
+    if (!made) made = null;
+    
+    var cb = f || function () {};
+    p = path.resolve(p);
+    
+    xfs.mkdir(p, mode, function (er) {
+        if (!er) {
+            made = made || p;
+            return cb(null, made);
+        }
+        switch (er.code) {
+            case 'ENOENT':
+                mkdirP(path.dirname(p), opts, function (er, made) {
+                    if (er) cb(er, made);
+                    else mkdirP(p, opts, cb, made);
+                });
+                break;
+
+            // In the case of any other error, just see if there's a dir
+            // there already.  If so, then hooray!  If not, then something
+            // is borked.
+            default:
+                xfs.stat(p, function (er2, stat) {
+                    // if the stat fails, then that's super weird.
+                    // let the original error be the failure reason.
+                    if (er2 || !stat.isDirectory()) cb(er, made)
+                    else cb(null, made);
+                });
+                break;
+        }
+    });
+}
+
+mkdirP.sync = function sync (p, opts, made) {
+    if (!opts || typeof opts !== 'object') {
+        opts = { mode: opts };
+    }
+    
+    var mode = opts.mode;
+    var xfs = opts.fs || fs;
+    
+    if (mode === undefined) {
+        mode = _0777 & (~process.umask());
+    }
+    if (!made) made = null;
+
+    p = path.resolve(p);
+
+    try {
+        xfs.mkdirSync(p, mode);
+        made = made || p;
+    }
+    catch (err0) {
+        switch (err0.code) {
+            case 'ENOENT' :
+                made = sync(path.dirname(p), opts, made);
+                sync(p, opts, made);
+                break;
+
+            // In the case of any other error, just see if there's a dir
+            // there already.  If so, then hooray!  If not, then something
+            // is borked.
+            default:
+                var stat;
+                try {
+                    stat = xfs.statSync(p);
+                }
+                catch (err1) {
+                    throw err0;
+                }
+                if (!stat.isDirectory()) throw err0;
+                break;
+        }
+    }
+
+    return made;
+};
+
+}).call(this,require('_process'))
+},{"_process":51,"fs":41,"path":41}],71:[function(require,module,exports){
 (function (process,global){
 /**
  * Shim process.stdout.
@@ -12288,8 +12703,8 @@ Mocha.process = process;
  * Expose mocha.
  */
 
-window.Mocha = Mocha;
-window.mocha = mocha;
+global.Mocha = Mocha;
+global.mocha = mocha;
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../":1,"_process":51,"browser-stdout":40}]},{},[70]);
+},{"../":1,"_process":51,"browser-stdout":40}]},{},[71]);
