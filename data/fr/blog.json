@@ -1,0 +1,36 @@
+[{
+    "id": 1,
+    "title": "Annonce du DevFest Paris 2016",
+    "titleUrl": "devfest-paris-2016-announced",
+    "posted": "22 octobre 2015",
+    "file": "fr/2015-10-22-devfest-paris-2016-announced.markdown",
+    "brief": "Le GDG Paris est fier d'annoncer cette nouvelle édition du DevFest Paris - la plus grande conférence autour des technologies Google à Paris. Réservez votre journée !"
+}, {
+    "id": 2,
+    "title": "Call for Papers",
+    "titleUrl": "call-for-papers",
+    "posted": "01 novembre 2015",
+    "file": "fr/2015-11-01-call-for-papers.markdown",
+    "brief": "Le Call for Papers est dès à présent ouvert. Vous souhaitez faire partie des conférenciers ? N'oubliez pas de soumettre votre proposition avant le 15 décembre 2015."
+}, {
+    "id": 3,
+    "title": "Réservez votre place",
+    "titleUrl": "book-your-ticket",
+    "posted": "23 novembre 2015",
+    "file": "fr/2015-11-23-book-your-ticket.markdown",
+    "brief": "A partir d'aujourd'hui, vous pouvez réserver <a href='http://www.eventbrite.fr/e/billets-devfest-paris-2016-19529320724'>votre place</a> pour le DevFest Paris 2016. Dépêchez-vous : nous proposons un prix spécial pour les premiers inscrits !"
+}, {
+    "id": 4,
+    "title": "Annonce des premiers speakers",
+    "titleUrl": "first-speakers",
+    "posted": "9 décembre 2015",
+    "file": "fr/2015-12-09-first-speakers.markdown",
+    "brief": "Nous sommes très heureux d'annoncer les 4 premiers speakers séléctionnés pour le DevFest Paris 2016. Si vous souhaitez aussi être speaker, n'oubliez pas de de soumettre votre proposition avant le 15 décembre."
+}, {
+    "id": 5,
+    "title": "Demandez le programme !",
+    "titleUrl": "talks-announcement",
+    "posted": "10 janvier 2016",
+    "file": "fr/2016-01-10-talks-announcement.markdown",
+    "brief": "Après une longue attente, La liste des talks et des speakers est maintenant officielle. Nous sommes fiers de vous présenter le programme de cette édition 2016."
+}]

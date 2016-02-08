@@ -1,763 +1,1067 @@
-[{
-    "id": 23,
-    "featured": true,
-    "name": "Dawid Ostrowski",
-    "title": "Developer Relations Program Manager",
-    "company": "Google",
-    "country": "Switzerland",
-    "photoUrl": "../../images/people/dawid_ostrowski.jpg",
-    "bio": "Dawid is true technology enthusiast, who loves to work in areas where humans and machines meet to create amazing new products and services. He is experienced program manager with strong technical background, who is able to establish priorities for complex projects and execute across multiple organizations, according to long-term objectives. Dawid has worked in Poland, USA, Germany, Belgium and The Netherlands and truly values diversity of international working environment. His most visible characteristics are individualization (when dealing directly with people), ideation&intellection (inexhaustible source of new concepts) and strong communication (experienced trainer, community manager). He is also an activator constantly impatient for action.",
-    "tags": ["Entrepreneurship"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+DawidOstrowski/"
-    }]
-}, {
-    "id": 9,
-    "featured": true,
-    "name": "Mandy Waite",
-    "title": "Developer Relations Engineer",
-    "company": "Google",
-    "country": "UK",
-    "photoUrl": "../../images/people/mandy_waite.jpg",
-    "bio": "Based in London, UK, Mandy is a Developer Relations Engineer at Google specializing in Container and Cloud technologies and working to make the world a better place for developers building applications for the Cloud. Before Google Mandy worked at Sun Microsystems on performance and scalability of Java and JavaEE and on porting Open Source apps to OpenSolaris. In her spare time Mandy is learning Japanese and likes to play the guitar.",
-    "tags": ["Cloud", "Firebase", "gRPC", "Kubernetes", "Docker"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+MandyWaite"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/tekgrrl"
-    }, {
-        "name": "GitHub",
-        "icon": "app-icons:github",
-        "link": "https://github.com/tekgrrl"
-    }]
-}, {
-    "id": 15,
-    "featured": true,
-    "name": "Jakub Škvára",
-    "title": "Frontend engineer",
-    "company": "Shipito",
-    "country": "Czech Republic",
-    "photoUrl": "../../images/people/jakub_skvara.jpg",
-    "bio": "Jakub is a member of GDG Prague and GDG ČVUT in Czech republic. He organised together with Jana Moudrá several Polymer and Dart code labs and a hackaton. He works as a frontend engineer for Shipito. Jakub is interested in modern Javascript frameworks, libraries and tools and loves clean code.",
-    "tags": ["Web", "Polymer"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Prague",
-        "link": "https://developers.google.com/groups/chapter/111919016509847766513/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/u/0/+JakubSkvara"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/skvaros"
-    }]
-}, {
-    "id": 14,
-    "name": "Jana Moudrá",
-    "title": "Co-Founder",
-    "company": "Juicymo",
-    "country": "Czech Republic",
-    "photoUrl": "../../images/people/jana_moudra.jpg",
-    "bio": "GDE (Google Developer Expert) for Dart. Jana is a passionate developer and modern web and mobile technology evangelist. She is an event organiser for GDG Prague, where she arranges events for developers including public lectures, code labs and hackathons – covering a wide range of subjects including technologies Dart or Android. She loves to help other developers and spread the knowledge about these technologies. <br/><br/>Jana co-founded a company called Juicymo, where she works on juicy apps and products.",
-    "tags": ["Web", "Dart"],
-    "badges": [{
-        "name": "GDE",
-        "description": "Dart Google Developer Expert",
-        "link": "https://developers.google.com/experts/people/jana-moudr"
-    }, {
-        "name": "GDG",
-        "description": "Google Developers Group Prague",
-        "link": "https://developers.google.com/groups/chapter/111919016509847766513/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+JanaMoudrá"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://cz.linkedin.com/in/janamoudra"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/Janamou"
-    }, {
-        "name": "Blog",
-        "icon": "link",
-        "link": "http://www.moudra.net/"
-    }]
-}, {
-    "id": 11,
-    "featured": true,
-    "name": "Hallade Xavier",
-    "title": "Developer Evangelist",
-    "company": "Intel",
-    "country": "France",
-    "photoUrl": "../../images/people/hallade_xavier.jpg",
-    "bio": "Xavier Hallade is a software engineer at Intel Software and Services Group in Paris, France, where he works on a wide range of Android frameworks, libraries and applications, helping developers to improve their support for new hardware and technologies. He's a Google Developer Expert in Android, with a focus on the Android NDK and Android TV.",
-    "tags": ["Android", "NDK"],
-    "badges": [{
-        "name": "GDE",
-        "description": "Android Google Developer Expert",
-        "link": "https://developers.google.com/experts/people/xavier-hallade"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/106834066322753191683/posts"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://www.linkedin.com/in/xavierhallade"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/ph0b"
-    }, {
-        "name": "Website",
-        "icon": "link",
-        "link": "http://ph0b.com/"
-    }]
-}, {
-    "id": 1,
-    "featured": true,
-    "name": "Said Tahsin Dane",
-    "title": "Mobile Coder",
-    "company": "Startup Digest",
-    "country": "Turkey",
-    "photoUrl": "../../images/people/said_tahsine_dane.jpg",
-    "bio": "GDE (Google Developer Expert) for Android. Experience with Android (since Cupcake), Google Glass, Android Wear, and (even on!) iOS. Very passionate developer who tries to live on the bleeding edge of technology. Also very interested in mobile UX. <br/><br/>Active member and organizer at GDG Istanbul enjoying organizing various conferences and hackathons. Also a part of GDG[X] - a GDG related open-source organization.",
-    "tags": ["Android", "Material Design"],
-    "badges": [{
-        "name": "GDE",
-        "description": "Android Google Developer Expert",
-        "link": "https://developers.google.com/experts/people/said-tahsin-dane"
-    }, {
-        "name": "GDG",
-        "description": "Google Developers Group Istanbul",
-        "link": "https://developers.google.com/groups/chapter/100514812580249787371/"
-    }],
-    "socials": [{
-        "name": "Website",
-        "icon": "link",
-        "link": "http://www.tasomaniac.com/"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/tasomaniac"
-    }, {
-        "name": "GitHub",
-        "icon": "app-icons:github",
-        "link": "https://github.com/tasomaniac"
-    }]
-}, {
-    "id": 2,
-    "featured": true,
-    "name": "Mateusz Herych",
-    "title": "Software Engineer",
-    "company": "Base CRM",
-    "country": "Poland",
-    "photoUrl": "../../images/people/mateus_herych.jpg",
-    "bio": "Mateusz is an Android GDE and GDG organizer. Works as Android Developer for Base CRM where he uses his android-abracadabras to make enterprise software users more productive.",
-    "tags": ["Android", "Android M", "Backup"],
-    "badges": [{
-        "name": "GDE",
-        "description": "Android Google Developer Expert",
-        "link": "https://developers.google.com/experts/people/mateusz-herych"
-    }, {
-        "name": "GDG",
-        "description": "Google Developers Group Krakow",
-        "link": "https://developers.google.com/groups/chapter/107562802227561437057/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+MateuszHerych"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/mherych"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://www.linkedin.com/in/herych"
-    }]
-}, {
-    "id": 19,
-    "featured": true,
-    "name": "Juarez Filho",
-    "title": "Front End Engineer",
-    "company": "madewithlove",
-    "country": "Brazil",
-    "photoUrl": "../../images/people/juarez_filho.jpg",
-    "bio": "Juarez Filho is an enthusiastic Front end Engineer with over 7 years of experience, started his career as backend developer, but with his first CSS class he devoted completely to Front End and UX.<br/><br/>Currently building things with love at @madewithlove and also a GDG Organizer spreading the awesome Google Technologies mainly Firebase and web related topics.",
-    "tags": ["Cloud", "Firebase"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Maceio",
-        "link": "https://developers.google.com/groups/chapter/105591078626334574818/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "http://google.com/+JuarezPAFilho"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "http://linkedin.com/in/juarezpaf"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "http://twitter.com/juarezpaf"
-    }, {
-        "name": "GitHub",
-        "icon": "app-icons:github",
-        "link": "http://github.com/juarezpaf"
-    }]
-}, {
-    "id": 3,
-    "name": "Dmytro Danylyk",
-    "title": "Android Developer",
-    "company": "Timee",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/dmytro_danylyk.jpeg",
-    "bio": "Hello. I am finalist of Google Apps Developer Challenge 2012. Author of open source libraries 4000+ stars. When I have free time I am writing technical articles. Always trying to share my knowledge & experience on different events. Big fan of android, flat design, stackoverflow, git, Intellij IDEA. Eclipse IDE hater.",
-    "tags": ["Android", "UX"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+DmytroDanylyk"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/dmytrodanylyk"
-    }, {
-        "name": "Website",
-        "icon": "link",
-        "link": "http://www.dmytrodanylyk.com/#/about"
-    }]
-}, {
-    "id": 4,
-    "name": "Roman Mazur",
-    "title": "Software Engineer",
-    "company": "Stanfy",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/roman_mazur.jpg",
-    "bio": "Roman has been working with Android for more than 6 years. You can find him delivering fixes and new features to a plenty of Android libraries and frameworks including support library, Robolectric, Madge, Spoon, Retrofit, and Helium. <br/><br/>At Stanfy he is working on a customized Android OS for in-room tablets installed at hotels by KEYPR.",
-    "tags": ["Android"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Kyiv",
-        "link": "https://developers.google.com/groups/chapter/110301321530950732281/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+RomanMazur/"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "http://twitter.com/roman_mazur"
-    }, {
-        "name": "GitHub",
-        "icon": "app-icons:github",
-        "link": "https://github.com/roman-mazur"
-    }]
-}, {
-    "id": 5,
-    "featured": true,
-    "name": "Michał Tajchert",
-    "title": "CEO",
-    "company": "12Hours.io",
-    "country": "Poland",
-    "photoUrl": "../../images/people/michal_tajchert.jpg",
-    "bio": "Michal is Android Developer for all kinds of wearables, done programming for things such Oakley Airwave, Glass, Sony Smartwatch, and lately found his place in Android Wear development. He has contributed most of his project to the community and shared his knowledge to the community by organising many of Warsaw GDG meetings.",
-    "tags": ["Android"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+MichalTajchert"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/tajchert"
-    }, {
-        "name": "GitHub",
-        "icon": "app-icons:github",
-        "link": "https://github.com/tajchert"
-    }, {
-        "name": "Website",
-        "icon": "link",
-        "link": "http://tajchert.pl/"
-    }]
-}, {
-    "id": 7,
-    "name": "Valentyn Shybanov",
-    "title": "Software Engineer/Country Manager",
-    "company": "Twinfield",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/valentyn_shybanov.jpg",
-    "bio": "Valentyn focuses on Polymer and Web Components. In previous roles heâ€™s helped craft design systems for massive enterprise companies, user interfaces for console titles, and even built the occasional enchanted princess game. These days his mission is to fight for a better web and to help developers build great experiences.",
-    "tags": ["Web", "AngularJS", "Cloud", "Go"],
-    "badges": [{
-        "name": "GDE",
-        "description": "Cloud Google Developer Expert",
-        "link": "https://developers.google.com/experts/people"
-    }, {
-        "name": "GDG",
-        "description": "Google Developers Group Kyiv",
-        "link": "https://developers.google.com/groups/chapter/110301321530950732281/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://google.com/+ValentynShybanov"
-    }, {
-        "name": "Website",
-        "icon": "link",
-        "link": "http://olostan.name/"
-    }]
-}, {
-    "id": 8,
-    "name": "Dima Maleev",
-    "title": "Director",
-    "company": "Lviv Code School",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/dima_maleev.jpg",
-    "bio": "Dima is a developer for about 10 years, making his way from junior to technical architect and manager of complex mobile solutions. In the past .NET developer, ex-leader of \"Lviv .NET User Group\" and one of the organizers of the \"Oh, Mobile!\" community. A fan of mobile technology and javascript. Makes fun talks all around the world and plays american football:)",
-    "tags": ["Web", "V8 Engine"],
-    "socials": [{
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/dimko1"
-    }, {
-        "name": "GitHub",
-        "icon": "app-icons:github",
-        "link": "https://github.com/dimko1"
-    }]
-}, {
-    "id": 10,
-    "name": "Roman Herasymenko",
-    "title": "Senior Android Developer",
-    "company": "Yalantis Mobile",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/roman_herasymenko.jpg",
-    "bio": "Roman is Senior Android developer at Yatlantis and a co-organizer of GDG Dnipropetrovsk. Roman is interesting in software development for cutting edge technologies and devices like Google Glass and Android Wear.",
-    "tags": ["Android", "Android M"],
-    "badges": [{
-        "name": "GDE",
-        "description": "Android Google Developer Expert",
-        "link": "https://developers.google.com/experts/people/roman-herasymenko"
-    }, {
-        "name": "GDG",
-        "description": "Google Developers Group Dnipropetrovsk",
-        "link": "https://developers.google.com/groups/chapter/116033068768596939209/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+RomanGerasimenko/"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "http://ua.linkedin.com/pub/roman-gerasimenko/"
-    }]
-}, {
-    "id": 12,
-    "name": "Alex Pazhyn",
-    "title": "UI designer",
-    "company": "Ciklum",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/alex_pazhyn.jpg",
-    "bio": "Alex is a leading UI designer at Ciklum with more than 7 years of experience in UI design and 3 years of public speaking. His general focus of work is mobile applications and interfaces of IOT.",
-    "tags": ["Android", "UX", "Material Design"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Kyiv",
-        "link": "https://developers.google.com/groups/chapter/110301321530950732281/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+AlexPazhyn/posts"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "http://www.linkedin.com/in/alexpazhyn"
-    }, {
-        "name": "Facebook",
-        "icon": "app-icons:facebook",
-        "link": "https://www.facebook.com/alex.pazhyn"
-    }]
-}, {
-    "id": 13,
-    "name": "Maciej Górski",
-    "title": "Lazy Developer",
-    "company": "EL Passion",
-    "country": "Poland",
-    "photoUrl": "../../images/people/maciej_gorski.jpg",
-    "bio": "Maciej is a passionate Android developer. He cares about writing clean code and less of it. He is spending time to automate things to save even more time. He also bikes a lot and would love to be able to code while doing it… using only mind controlled wearables or bikeables.",
-    "tags": ["Android", "CI"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+MaciejGórski6"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://www.linkedin.com/in/mg6maciej"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/mg6maciej"
-    }, {
-        "name": "GitHub",
-        "icon": "app-icons:github",
-        "link": "https://github.com/mg6maciej"
-    }]
-}, {
-    "id": 16,
-    "name": "Kseniia Shumelchyk",
-    "title": "Software developer",
-    "company": "SoftServe",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/kseniia_shumelchyk.jpg",
-    "bio": "Kseniia is working as software developer at SoftServe as well she has an experience of working on open-source project during Google Summer of Code. Kseniia is leading Women Techmakers Ukraine and GDG Dnipropetrovsk communities for 3 years. She participated in number of international conferences: GOTO Aarhus, Google I/O and GDG Leaders Summit and was a speaker at Droidcon Berlin, Women Techmakers Istanbul, GDG DevFest Ukraine and Women Techmakers Global TechTalk. This year Kseniia was selected as Anita Borg Scholar Receipient that aimed to support women with outstanding results in Computer Science. Kseniia is a big fan of innovative technologies in education and software development. She is creator of Android application for Women Techmakers Community.",
-    "tags": ["Android", "BLE", "Community"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Dnipropetrovsk",
-        "link": "https://developers.google.com/groups/chapter/116033068768596939209/"
-    }, {
-        "name": "WTM",
-        "description": "Women Techmakers Ukraine",
-        "link": "http://www.wtm-ukraine.com/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/u/0/104006672956574838559"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "http://ua.linkedin.com/pub/kseniia-shumelchyk/49/26/935"
-    }, {
-        "name": "Facebook",
-        "icon": "app-icons:facebook",
-        "link": "https://www.facebook.com/kseniya.shumelchyk"
-    }]
-}, {
-    "id": 17,
-    "name": "Anna Kurylo",
-    "title": "Project manager",
-    "company": "Hackraft",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/anna_kurylo.png",
-    "bio": "Anna drives several IT communities in Kyiv. She has organized more than 30 events during last the 2 years including the biggest hackathon in Ukraine and several conferences for developers and startups. This year Anna became a Google Anita Borg Scholar in EMEA Region, being selected from more than a thousand candidates.",
-    "tags": ["Community"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Kyiv",
-        "link": "https://developers.google.com/groups/chapter/110301321530950732281/"
-    }, {
-        "name": "WTM",
-        "description": "Women Techmakers Kyiv",
-        "link": "http://www.wtm-ukraine.com/"
-    }, {
-        "name": "GDG",
-        "description": "Google Developers Group Kyiv",
-        "link": "https://developers.google.com/groups/chapter/110301321530950732281/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+AnnaKurilo/"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://ua.linkedin.com/in/bluebirrrrd"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/bluebirrrrd"
-    }, {
-        "name": "Facebook",
-        "icon": "app-icons:facebook",
-        "link": "https://www.facebook.com/annakurylo21"
-    }]
-}, {
-    "id": 18,
-    "name": "Alexey Rybakov",
-    "title": "Senior Developer",
-    "company": "DataArt",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/alexey_rybakov.png",
-    "bio": "For more than 12 years has been dedicated to game development for different mobile systems (from Palm OS, Windows CE to iOS).<br/><br/>In DataArt is working on development for  the mobile and embedded OS from 2011.",
-    "tags": ["Android", "TV"],
-    "socials": [{
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://ua.linkedin.com/in/alexeyrybakov"
-    }]
-}, {
-    "id": 20,
-    "name": "Viktor Zozuliak",
-    "title": "Web Developer",
-    "company": "DataXu/RailsReactor",
-    "country": "Poland",
-    "photoUrl": "../../images/people/viktor_zozuliak.jpg",
-    "bio": "Viktor is a passionate web developer with >10 years experience. He is completely in love with making user interfaces better. Crazy about unit/e2e testing. Believes that everything is going to be in Web someday.",
-    "tags": ["Web", "ServiceWorkers"],
-    "socials": [{
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://ua.linkedin.com/in/zozulyakviktor"
-    }, {
-        "name": "Facebook",
-        "icon": "app-icons:facebook",
-        "link": "https://www.facebook.com/viktor.zu"
-    }]
-}, {
-    "id": 21,
-    "name": "Buşra Deniz",
-    "title": "Mobile Software Developer",
-    "company": "Netas",
-    "country": "Turkey",
-    "photoUrl": "../../images/people/busra_deniz.jpg",
-    "bio": "Busra Deniz is a Software Engineer who has a keen interest in developing high-quality software by applying agile principles and methodologies, especially Scrum.<br/><br/>She is a Certificated Scrum Master and mobile engineer in Netas. Currently, working on an international project that provides iOS and Android SDKs those allow other programmers to develop their applications, which are capable of voice call, video call and IM using WebRTC.<br/><br/>Besides being co-organizer in two different community, Google Developer Group and WomenTechMakers İstanbul, she enjoys voluntarily organizing and speaking at developer events. Also, she believes in sharing knowledge and collaborating with the other people through these events, will come hand in hand with innovation and new perspectives. She always loves being part of a team and thinks that individual commitment to a team is the key to success. As a result of that she is a big fan of agile methodologies including Scrum, TDD and XP. Besides agile, she is also got excited almost every new technology in mobile platforms. And, as a software engineer, her goal is delivering software with high quality and robust architecture. In order to achieve that she highly relies on unit testing and mobile test automation.",
-    "tags": ["Web", "WEB RTC"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Istanbul",
-        "link": "https://developers.google.com/groups/chapter/100514812580249787371/"
-    }, {
-        "name": "WTM",
-        "description": "Women Tech Makers Istanbul",
-        "link": "https://developers.google.com/groups/chapter/100514812580249787371/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/u/0/107161766252148547668"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://tr.linkedin.com/in/busradeniz"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/busradeniz"
-    }, {
-        "name": "Blog",
-        "icon": "link",
-        "link": "http://www.busradeniz.com/"
-    }]
-}, {
-    "id": 22,
-    "name": "Semih Yagcioglu",
-    "title": "Senior Software Engineer",
-    "company": "MITS",
-    "country": "Turkey",
-    "photoUrl": "../../images/people/semih_yagcioglu.jpg",
-    "bio": "Semih is a software developer. He likes to solve problems and get things done. He is a PhD student in Computer Science at Hacettepe University with a focus on Computer Vision and NLP and works at MITS on mobile and web.",
-    "tags": ["Web", "AngularJS"],
-    "socials": [{
-        "name": "GitHub",
-        "icon": "app-icons:github",
-        "link": "github.com/semihyagcioglu"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://linkedin.com/in/semih"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/semihyagcioglu"
-    }, {
-        "name": "Blog",
-        "icon": "link",
-        "link": "http://semihyagcioglu.com"
-    }]
-}, {
-    "id": 24,
-    "name": "Volodymyr Ivanov",
-    "title": "Founder, Coordinator",
-    "company": "GDG Kyiv",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/volodymyr_ivanov.jpg",
-    "bio": "Founder and coordinator of the first Google Developer Group in Ukraine - GDG Kyiv-Center. Community manager of the Ukrainian Google developer program, a prominent member of the Ukrainian and international GDG communities, organizer of the first Ukrainian Hackathon, author and co-organizer of DevFest Ukraine 2012-14. “Community” flow moderator at DevFest Ukraine 2014.",
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Kyiv",
-        "link": "https://developers.google.com/groups/chapter/110301321530950732281/"
-    }],
-    "tags": ["Community"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/u/0/+VladimirIvanovUA/about"
-    }]
-}, {
-    "id": 25,
-    "name": "Daryna Chernysheva",
-    "title": "Test Automation Tech Lead",
-    "company": "EPAM Systems",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/daryna_chernysheva.jpg",
-    "bio": "Daryna is working in test automation field. She has experience in testing desktop, web and mobile applications, her main area of responsibility is test framework design.",
-    "tags": ["Community"],
-    "socials": [{
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://www.linkedin.com/in/sunstream"
-    }]
-}, {
-    "id": 26,
-    "name": "Elena Forostovets",
-    "title": "UI/UX",
-    "company": "Boolat Games",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/elena_forostovets.png",
-    "bio": "Elena is a UI/UX designer at Boolat Games. Over 3 years experience in game development as UI/UX and 2D artist . Winner Golden Byte 5 and ecaHack Kyiv at 2013. Elena received her bechelor’s degree from NAU, where she studied architecture and design.<br/><br/>Also She is indie game developer, has published Cartrans game for Android and working on few other projects.",
-    "tags": ["Community", "Material Design"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Kyiv",
-        "link": "https://developers.google.com/groups/chapter/110301321530950732281/"
-    }, {
-        "name": "WTM",
-        "description": "Women Techmakers Kyiv",
-        "link": "http://www.wtm-ukraine.com/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/u/0/116263571117013518529/posts"
-    }, {
-        "name": "Facebook",
-        "icon": "app-icons:facebook",
-        "link": "https://www.facebook.com/Laurelin619"
-    }]
-}, {
-    "id": 27,
-    "name": "Tatiana Protasova",
-    "title": "Marketing Manager",
-    "company": "Plarium Education",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/protasova_tatiana.jpg",
-    "bio": "At the moment I am passionately engaged in promoting an educational mobile game for kids.<br/><br/>I am also addicted to the startup ecosystem -been part of two business accelerators in two different countries- and own a startup of my own.",
-    "tags": ["Community", "Android"],
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Kyiv",
-        "link": "https://developers.google.com/groups/chapter/110301321530950732281/"
-    }, {
-        "name": "WTM",
-        "description": "Women Techmakers Kyiv",
-        "link": "http://www.wtm-ukraine.com/"
-    }],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/u/1/+TatianaProtasova/posts"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://ua.linkedin.com/pub/tetiana-protasova/22/8a/a98"
-    }]
-}, {
-    "id": 28,
-    "name": "Constantine Mars",
-    "title": "Senior Android Developer",
-    "company": "DataArt",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/constantine_mars.png",
-    "bio": "Constantine is a Senior Mobile Developer at DataArt, GDG Dnipropetrovs'k Organizer and Java User Group Dnipro Organizer. <br/><br/>He is developing apps for both Android and iOS platfroms, but prefer to talk about Android innovations and Java language features. The last areas of his interest are Reactive Functional Programming, Ubiquitous Computing (especially AndroidWear) and GoogleFit.",
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Dnipropetrovs'k",
-        "link": "https://developers.google.com/groups/chapter/116033068768596939209/"
-    }],
-    "tags": ["Android", "RxJava"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/u/0/+ConstantineMars"
-    }, {
-        "name": "Facebook",
-        "icon": "app-icons:facebook",
-        "link": "https://www.facebook.com/constantine.mars"
-    }]
-}, {
-    "id": 29,
-    "name": "Anton Minashkin",
-    "title": "Android Developer",
-    "company": "GlobalLogic",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/anton_minashkin.jpg",
-    "bio": "Anton is an Android developer at GlobalLogic. He has experience in both, server and mobile side development. He is a speaker at UA-Mobile, GDG Kyiv Android and several other events. Also he is co-founder of GDG Kremenchuk and Kremenchuk IT Community.",
-    "badges": [{
-        "name": "GDG",
-        "description": "Google Developers Group Kremenchuk",
-        "link": "https://developers.google.com/groups/chapter/107464569258887658610/"
-    }],
-    "tags": ["Android", "Android M", "Data Binding"],
-    "socials": [{
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://www.linkedin.com/profile/view?id=178701990"
-    }, {
-        "name": "Facebook",
-        "icon": "app-icons:facebook",
-        "link": "https://www.facebook.com/anton.minashkin.1"
-    }]
-}, {
-    "id": 30,
-    "name": "Ihor Dvoretskyi",
-    "title": "Operation Engineer",
-    "company": "Mirantis Inc.",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/ihor_dvoretskyi.jpg",
-    "bio": "Ihor is an Operations Engineer at Mirantis Inc - the #1 Pure Play OpenStack Company, with a huge experience working in IT companies, where he was responsible for a couple of projects, tightly bound to Cloud computing and *nix systems. Ihor is deeply interested in OpenStack cloud platform, other Cloud technologies and Open Source projects. Also, Ihor is a big fan of Google and Google products.<br/><br/>Apart from work, Ihor is also interested in other branches of IT technology and starts diving into Robotics.",
-    "tags": ["Cloud", "Kubernetes", "Docker"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+IgorDvoretskyi/"
-    }, {
-        "name": "LinkedIn",
-        "icon": "app-icons:linkedin",
-        "link": "https://ua.linkedin.com/in/idvoretskyi"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/idvoretskyi"
-    }]
-}, {
-    "id": 31,
-    "name": "Anastasiia Serafyn",
-    "title": "Recruiting Team Lead",
-    "company": "Lohika",
-    "country": "Ukraine",
-    "photoUrl": "../../images/people/anastasiia_serafyn.jpg",
-    "bio": "Anastasiia is a passionate and skilled Technical Recruiter, leading team of 7 people. She has 4 years of hands-on experience in recruiting/headhunting IT professionals and over 2 years in PR & Employer branding activities. Also Anastasiia helps in organization and management of Lviv Tech Talks community Morning@Lohika.",
-    "tags": ["Community"],
-    "socials": [{
-        "name": "Google+",
-        "icon": "app-icons:gplus",
-        "link": "https://plus.google.com/+AnastasiiaChernysh/posts"
-    }, {
-        "name": "Twitter",
-        "icon": "app-icons:twitter",
-        "link": "https://twitter.com/Nastya_web"
-    }]
-}]
+[
+    {
+        "id": 1,
+        "featured": true,
+        "name": "François Beaufort",
+        "title": "Chromium Evangelist",
+        "company": "Google",
+        "country": "FR",
+        "photoUrl": "../../images/people/fbeaufort.jpg",
+        "bio": "François travaille à Google sur le projet Chromium et t'aime énormément.",
+        "tags": [
+            "Chrome",
+            "Web",
+            "IoT"
+        ],
+        "badges": [
+            {
+                "name": "Googler",
+                "description": "Chromium Evangelist",
+                "link": "https://developer.chrome.com/home"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+FrancoisBeaufort"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/beaufortfrancois/"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "featured": true,
+        "name": "Francesc Campoy",
+        "title": "Cloud Developer Advocate",
+        "company": "Google",
+        "country": "US",
+        "photoUrl": "../../images/people/fcampoy.jpg",
+        "bio": "Francesc Campoy Flores is a Developer Advocate for Go and the Cloud at Google. He joined the Go team in 2012 and since then he has written some considerable didactic resources and traveled the world attending conferences, organizing live courses, and meeting fellow gophers. He joined Google in 2011 as a backend software engineer working mostly in C++ and Python, but it was with Go that he rediscovered how fun programming can be.",
+        "tags": [
+            "Cloud",
+            "Go"
+        ],
+        "badges": [
+            {
+                "name": "Googler",
+                "description": "Cloud Developer Advocate",
+                "link": "https://cloud.google.com/docs/"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+FrancescCampoyFlores"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/francesc"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/campoy"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "featured": true,
+        "name": "Cyril Mottier",
+        "title": "Lead Android Devsigner",
+        "company": "Captain Train",
+        "country": "FR",
+        "photoUrl": "../../images/people/cmottier.jpg",
+        "bio": "Cyril is a dedicated Android developer, designer and writer. He's worked on a huge variety of mobile projects across UI, UX, software architecture, and many more. Cyril is also passionate about technology and design and can turn his diverse engineering and Android skills to any problem that needs solving.<br>He's actively involved in the Android community too – writing blog posts, creating open source libraries, and giving talks around the word.<br>Cyril's motto is “Do less, but do it insanely great”. He is often considered a perfectionist, but prefers seeing himself as a pixel lover!",
+        "tags": [
+            "Android"
+        ],
+        "badges": [
+            {
+                "name": "GDE",
+                "description": "Google Developer Expert",
+                "link": "https://developers.google.com/experts/people/cyril-mottier"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+CyrilMottier"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/cyrilmottier"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "featured": true,
+        "name": "Xavier Hallade",
+        "title": "Application Engineer",
+        "company": "Intel",
+        "country": "FR",
+        "photoUrl": "../../images/people/xhallade.jpg",
+        "bio": "Xavier Hallade is a software engineer at Intel Software and Services Group in Paris, France, where he works on a wide range of Android frameworks, libraries and applications, helping developers to improve their support for new hardware and technologies. <br> He's a Google Developer Expert in Android, with a focus on the Android NDK and Android TV.",
+        "tags": [
+            "Android", "Android Wear", "Android TV"
+        ],
+        "badges": [
+            {
+                "name": "GDE",
+                "description": "Google Developer Expert",
+                "link": "https://developers.google.com/experts/people/xavier-hallade"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+XavierHallade"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/ph0b"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "http://ph0b.com/"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "featured": true,
+        "name": "Romain Vialard",
+        "title": "Product manager",
+        "company": "Revevol",
+        "country": "FR",
+        "photoUrl": "../../images/people/rvialard.jpg",
+        "bio": "Romain Vialard is a Google Developer Expert. After some years spent as a Google Apps consultant, he is now focused on products for Google Apps users, including add-ons such as Yet Another Mail Merge and Form Publisher.",
+        "tags": [
+            "Apps Script", "Analytics"
+        ],
+        "badges": [
+            {
+                "name": "GDE",
+                "description": "Google Developer Expert",
+                "link": "https://developers.google.com/experts/people/romain-vialard"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+RomainVialard-public"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://sites.google.com/site/scriptsexamples/"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "featured": true,
+        "name": "Didier Girard",
+        "title": "Directeur Général",
+        "company": "Sfeir",
+        "country": "FR",
+        "photoUrl": "../../images/people/dgirard.jpg",
+        "bio": "I am a software engineer with experience in: Cloud Technologies, BigData, Machine Learning, Java and Go.",
+        "tags": [
+            "Cloud",
+            "BigData"
+        ],
+        "badges": [
+            {
+                "name": "GDE",
+                "description": "Google Developer Expert",
+                "link": "https://developers.google.com/experts/people/didier-girard"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/DidierGirard"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://sites.google.com/site/scriptsexamples/"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "featured": true,
+        "name": "Alexis Moussine-Pouchkine",
+        "title": "Cloud Developer Relations",
+        "company": "Google",
+        "country": "FR",
+        "photoUrl": "../../images/people/alexismp.jpg",
+        "bio": "",
+        "tags": [
+            "Cloud"
+        ],
+        "badges": [
+            {
+                "name": "Googler",
+                "description": "Cloud Developer Relations",
+                "link": "https://cloud.google.com/docs/"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+AlexisMP"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/alexismp"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://alexismp.wordpress.com"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "featured": false,
+        "name": "Jean-François Garreau",
+        "title": "Innovateur curieux",
+        "company": "SQLI",
+        "country": "FR",
+        "photoUrl": "../../images/people/jfgarreau.jpg",
+        "bio": "Je suis développeur depuis maintenant 10 ans. J'ai toujours évolué dans un monde java et j'ai découvert Android en 2009 avec la version 1.1. Depuis, je continue de suivre les évolutions de la plateforme. Depuis maintenant an et demi j'ai commencé à m'interesser plus en profondeur au Web avec des sujets comme AngularJS / WebRTC / WebSockets.<br><br>Chez SQLI depuis 2012, je suis présent pour développer l'offre mobile au sein de l'agence de Nantes.<br><br>En dehors du travail, je suis co-fondateur du GDG Nantes, organisateur du DevFest Nantes et est aussi le créateur d'applications Android<br><br>Retrouvez l'ensemble de mes contributions sur github.com/jefBinomed",
+        "tags": [
+            "Web"
+        ],
+        "badges": [
+            {
+                "name": "GDG",
+                "description": "GDG Nantes organizer",
+                "link": "http://www.meetup.com/fr-FR/GDG-Nantes"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+JeanFrancoisGarreau"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/jefbinomed"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/jefBinomed"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://http://jef.binomed.fr"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "featured": false,
+        "name": "Simon Lebrun",
+        "title": "Responsable Digital Lab",
+        "company": "gPartner",
+        "country": "FR",
+        "photoUrl": "../../images/people/slebrun.jpg",
+        "bio": "I have been working for gPartner for the last 4 years. I created the Digital Lab to answer our clients needs to create innovative web experience around Google Maps ans Street View.",
+        "tags": [
+            "Web", "Firebase", "Google Maps"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+SimonLebrungPartner"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "featured": false,
+        "name": "Thibault Lefevre",
+        "title": "Big Data Lead",
+        "company": "Cirruseo",
+        "country": "FR",
+        "photoUrl": "../../images/people/tlefevre.jpg",
+        "bio": "10 years data addict.",
+        "tags": [
+            "Data", "Cloud", "Neo4J"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/104231756250263470437"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "featured": false,
+        "name": "Chaïmaa Kadaoui",
+        "title": "Data enthusiast",
+        "company": "Cirruseo",
+        "country": "FR",
+        "photoUrl": "../../images/people/ckadaoui.jpg",
+        "bio": "Élève dans une école d’ingénieur, profite de son année de césure pour découvrir le monde de l’analyse de données et améliorer ses compétences. Après un premier stage à Cirruseo, est devenue intimement convaincue que la maîtrise des technos big data la mènera à coup sûr vers la domination du monde.",
+        "tags": [
+            "Data", "Cloud", "Neo4J"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/105203426639627151416"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "featured": false,
+        "name": "Stéphane Nicoll",
+        "title": "Spring Framework committer",
+        "company": "Pivotal",
+        "country": "FR",
+        "photoUrl": "../../images/people/snicoll.jpg",
+        "bio": "Stéphane has a thing for code quality and robustness. He's been spreading the word for more than ten years while developing large scale Java enterprise applications in the geospatial, financial, or logistics sectors. An Apache Maven PMC member since 2006, he joined the core Spring Framework development team early 2014, being one of the main contributors to both Spring Framework and Spring Boot since. During his free time, he loves traveling around the world.",
+        "tags": [
+            "Java", "Spring", "Web"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/snicoll"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/spring-projects/"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://spring.io/blog"
+            },
+            {
+                "name": "Lanyrd",
+                "icon": "link",
+                "link": "https://lanyrd.com/profile/snicoll"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "featured": false,
+        "name": "Brian Clozel",
+        "title": "Spring Framework committer",
+        "company": "Pivotal",
+        "country": "FR",
+        "photoUrl": "../../images/people/bclozel.jpg",
+        "bio": "Spring Framework core committer, focusing on web and messaging. Lead developer of Sagan, the Spring reference app that powers http://spring.io",
+        "tags": [
+            "Java", "Spring", "Cloud"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/brianclozel"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/spring-projects/"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://spring.io/blog"
+            },
+            {
+                "name": "Lanyrd",
+                "icon": "link",
+                "link": "https://lanyrd.com/profile/bclozel"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "featured": false,
+        "name": "Cyril Balit",
+        "title": "Front end CTO",
+        "company": "Sfeir",
+        "country": "FR",
+        "photoUrl": "../../images/people/cbalit.jpg",
+        "bio": "Cyril Balit est directeur technique front dans la société Sfeir. Il encadre une équipe de développeurs frontend spécialisés dans le développement d’applications RIA (Node, Angular, Backbone) et les problématiques d’industrialisation (usine de développement, intégration continue, cloud)",
+        "tags": [
+            "Web", "Polymer"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/cbalit"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/cbalit"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "featured": false,
+        "name": "Hubert Sablonnière",
+        "title": "Software Engineer",
+        "company": "INEAT Conseil",
+        "country": "FR",
+        "photoUrl": "../../images/people/hsablonniere.jpg",
+        "bio": "Hubert est développeur Web et passionné d’HTML, CSS et JavaScript. Il travaille depuis 7 ans chez INEAT Conseil et partage son temps entre des missions de développement sur des projets et des missions de conseil d'audit. Il est familier avec PHP et Java mais sa spécialité reste le JavaScript et la plateforme du Web en général.<br><br>Après avoir donné des cours pendant 2 ans, il participe maintenant à plusieurs conférences en tant qu'orateur. Il parle des dernières technologies et a toujours à cœur de trouver des nouveaux usages pour ses utilisateurs et des facilités pour les développeurs.",
+        "tags": [
+            "Web"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/hsablonniere"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "http://hsablonniere.com"
+            },
+            {
+                "name": "Lanyrd",
+                "icon": "link",
+                "link": "http://lanyrd.com/profile/hsablonniere"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "featured": false,
+        "name": "Yann Cadoret",
+        "title": "",
+        "company": "UX-Republic",
+        "country": "FR",
+        "photoUrl": "../../images/people/ycadoret.png",
+        "bio": "",
+        "tags": [
+            "UX"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/sniark"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "featured": false,
+        "name": "Antoine Duplouy",
+        "title": "",
+        "company": "UX-Republic",
+        "country": "FR",
+        "photoUrl": "../../images/people/aduplouy.jpg",
+        "bio": "",
+        "tags": [
+            "UX"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/antoine59470"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "featured": false,
+        "name": "Benjamin Talmard",
+        "title": "Technical Evangelist",
+        "company": "Microsoft France",
+        "country": "FR",
+        "photoUrl": "../../images/people/btalmard.jpg",
+        "bio": "En tant que conseiller technologique sur Microsoft Azure dans l'entité « Developers Experience & Evangelism » de Microsoft France, Benjamin est en charge de l'évangélisation de la stack Web et Cloud de Microsoft. Les architectures Web sur Microsoft Azure et les services associés sont donc ses sujets de prédilections en ce moment !",
+        "tags": [
+            "Cloud", "Machine Learning"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/benjiiim"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://github.com/benjiiim"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "featured": false,
+        "name": "Pierre-Alban Dewitte",
+        "title": "Cloud dev team leader",
+        "company": "MyScript",
+        "country": "FR",
+        "photoUrl": "../../images/people/padewitte.jpg",
+        "bio": "Passionné de nouvelles technologies avec un souci de leur bon usage. Intéressé par toutes les solutions permettant de faire mieux et simplement.",
+        "tags": [
+            "Web", "Polymer"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+DewittePierreAlban"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/padewitte"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/padewitte"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "http://padewitte.tumblr.com"
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "featured": false,
+        "name": "Ray Tsang",
+        "title": "Developer Advocate",
+        "company": "Google",
+        "country": "US",
+        "photoUrl": "../../images/people/rtsang.jpg",
+        "bio": "Ray is a Developer Advocate for the Google Cloud Platform. Ray had extensive hands on cross-industry enterprise systems integration delivery and management experiences during his time at Accenture, managed full stack application development, DevOps, and ITOps. Ray specialized in middleware, big data, and PaaS products during his time at Red Hat while contributing to open source projects, such as Infinispan. Aside from technology, Ray enjoys traveling and adventures.<br><br>Follow Ray on Twitter @saturnism (https://twitter.com/saturnism)",
+        "tags": [
+            "Cloud", "Kubernetes"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+RayTsang"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/saturnism"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/saturnism"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://medium.com/@saturnism"
+            }
+        ]
+    },
+    {
+        "id": 22,
+        "featured": false,
+        "name": "Christophe Jollivet",
+        "title": "Agitateur technique",
+        "company": "Apside",
+        "country": "FR",
+        "photoUrl": "../../images/people/cjollivet.jpg",
+        "bio": "Agitateur technique chez Apside, Christophe prêche les bonnes pratiques sur divers projets informatiques et universités en région tourangelle. Reconverti à l’informatique il y a 12 ans suite à un doctorat de neurobiologie, il contribue activement dans les communautés Java en ayant été co-responsable de la rubrique Java du site developpez.com mais aussi en participant à des conférences et en animant depuis 2008 le Tours JUG.",
+        "tags": [
+            "Web", "Chrome"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/jollivetc"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/jollivetc"
+            }
+        ]
+    },
+    {
+        "id": 23,
+        "featured": false,
+        "name": "Turhan Oz",
+        "title": "Entrepreneur & Developer",
+        "company": "Socosmoz",
+        "country": "FR",
+        "photoUrl": "../../images/people/toz.jpg",
+        "bio": "Android Developer, interested in clean coding, lean startuping, knowledge sharing.<br>staff @ParisAndroidUG",
+        "tags": [
+            "IoT"
+        ],
+        "badges": [
+            {
+                "name": "GDG",
+                "description": "PAUG Organizer",
+                "link": "http://www.paug.fr/"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/u/0/108342574058924181125"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/turhanoz"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/TurhanOz"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "http://turhanoz.com"
+            }
+        ]
+    },
+    {
+        "id": 24,
+        "featured": false,
+        "name": "Mathieu Parisot",
+        "title": "Développeur web",
+        "company": "Freelance",
+        "country": "FR",
+        "photoUrl": "../../images/people/mparisot.jpg",
+        "bio": "Développeur passionné, formateur et co-organisateur des HumanTalks Paris",
+        "tags": [
+            "Web", "CSS3"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://www.google.com/+ParisotMathieu"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/matparisot"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/mparisot"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "http://matparisot.fr/"
+            }
+        ]
+    },
+    {
+        "id": 25,
+        "featured": false,
+        "name": "Corentin Leclerc",
+        "title": "Software Engineer",
+        "company": "Designed4Work",
+        "country": "FR",
+        "photoUrl": "../../images/people/cleclerc.jpg",
+        "bio": "Développeur Python depuis toujours chez Cirruseo / Designed4Work. Responsable d'intégration des produits de Designed For Work / Apprenti DevOps",
+        "tags": [
+            "Cloud"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+CorentinLeclerc"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/corentin_l"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "http://www.designedforwork.com/"
+            }
+        ]
+    },
+    {
+        "id": 26,
+        "featured": false,
+        "name": "Alexis Tual",
+        "title": "Solution Engineer",
+        "company": "JFrog",
+        "country": "FR",
+        "photoUrl": "../../images/people/atual.jpg",
+        "bio": "Alexis is a versatile Solution Engineeer, he's passionate about technology and likes to work with a wide range of language and tools from Java to Docker, through web technologies. But since he fell in love with Groovy, he works on Gradle plugins at JFrog.",
+        "tags": [
+            "Cloud", "Microservices"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/alex_tual"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/alextu"
+            }
+        ]
+    },
+    {
+        "id": 27,
+        "featured": false,
+        "name": "Marc Poppleton",
+        "title": "Developer",
+        "company": "Orange Labs",
+        "country": "FR",
+        "photoUrl": "../../images/people/mpoppleton.jpg",
+        "bio": "I'm a Software Engineer at Orange Labs and tinker with code for Android since version 1.0 Apple Pie. <br>I'm also the leader of the GDG Code d'Armor.<br>The rest of the time, I'm Robopop, cyber-father and husband, half flesh and bones, half carbon fiber and steel.",
+        "tags": [
+            "Android"
+        ],
+        "badges": [
+            {
+                "name": "GDG",
+                "description": "GDG Code d'Armor organizer",
+                "link": "http://www.meetup.com/fr-FR/Code-dArmor/"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+MarcPoppleton"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/marcpoppleton"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/marcpoppleton"
+            }
+        ]
+    },
+    {
+        "id": 28,
+        "featured": false,
+        "name": "Pierre Crépieux",
+        "title": "Solution Engineer",
+        "company": "Orange Labs",
+        "country": "FR",
+        "photoUrl": "../../images/people/pcrepieux.jpg",
+        "bio": "Après plusieurs années passées du coté des infrastructures réseau (Réseau Intelligent, H.323, IMS), je suis aujourd'hui développeur senior sur Android. Mon sujet de prédilection du moment: l’impact que peuvent avoir les applications sur le terminal mobile et le réseau.",
+        "tags": [
+            "Android"
+        ]
+    },
+    {
+        "id": 29,
+        "featured": false,
+        "name": "Thierry Chatel",
+        "title": "",
+        "company": "MethoTIC Conseil",
+        "country": "FR",
+        "photoUrl": "../../images/people/tchatel.jpg",
+        "bio": "Je suis consultant et formateur, passionné par l'achitecture des applications web, et spécialiste de JavaScript et du framework AngularJS. Et Google Developer Expert sur AngularJS depuis 2014.",
+        "tags": [
+            "AngularJS"
+        ],
+        "badges": [
+            {
+                "name": "GDE",
+                "description": "Google Developer Expert",
+                "link": "https://developers.google.com/experts/people/thierry-chatel"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+ThierryChatel"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/ThierryChatel"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/tchatel"
+            }
+        ]
+    },
+    {
+        "id": 30,
+        "featured": true,
+        "name": "Scott Jenson",
+        "title": "Project Lead for Physical Web",
+        "company": "Google",
+        "country": "US",
+        "photoUrl": "../../images/people/sjenson.jpg",
+        "bio": "Scott Jenson has been doing user interface design and strategic planning for over 20 years. He worked at Apple on System 7, Newton, and the Apple Human Interface guidelines. He was the director of Symbian’s DesignLab, VP of product design for Cognima, a manager of mobile UX for Google for 5 years, and a creative director at frog design in San Francisco.<br><br>Scott returned to Google working on the Chrome team in November 2013<br><br>As a battle-scarred veteran of the software industry, Scott has shipped a consumer spreadsheet, been a part of 2 Mac OS releases, 5 Newton product cycles, 4 commercial web site revisions, designed 3 different mobile phone UIs, sworn at innumerable mobile browsers, and has over 20 patents.",
+        "tags": [
+            "Web", "IoT", "Keynote"
+        ],
+        "badges": [
+            {
+                "name": "Googler",
+                "description": "Googler",
+                "link": "https://google.github.io/physical-web/"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+ScottJenson"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/scottjenson"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "https://jenson.org/"
+            }
+        ]
+    },
+    {
+        "id": 31,
+        "featured": false,
+        "name": "Julien Landuré",
+        "title": "CTO Zenika Nantes",
+        "company": "Zenika",
+        "country": "FR",
+        "photoUrl": "../../images/people/jlandure.jpg",
+        "bio": "CTO de Zenika Nantes, Julien navigue entre des missions de formation (AngularJS, AppEngine) et d'architecture. Issu de la génération Google, il a co-fondé en Janvier 2011 le GDG Nantes, participe depuis 5 ans au Google I/O et organise le DevFest Nantes.",
+        "tags": [
+            "Web"
+        ],
+        "badges": [
+            {
+                "name": "GDG",
+                "description": "GDG Nantes organizer",
+                "link": "http://www.meetup.com/fr-FR/GDG-Nantes"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+julienlanduré"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/jlandure"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/jlandure"
+            }
+        ]
+    },
+    {
+        "id": 32,
+        "featured": false,
+        "name": "Wajdi Ben Rabah",
+        "title": "Software Engineer",
+        "company": "Sfeir",
+        "country": "FR",
+        "photoUrl": "../../images/people/wbenrabah.jpg",
+        "bio": "Software engineer, native and cross platform developer.",
+        "tags": [
+            "VR", "Android"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/u/0/+WajdiBenRabah/posts"
+            },
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/WajdiBenRabah"
+            },
+            {
+                "name": "GitHub",
+                "icon": "app-icons:github",
+                "link": "https://github.com/wajdibr"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "http://wajdibr.com/"
+            }
+        ]
+    },
+    {
+        "id": 33,
+        "featured": false,
+        "name": "Ludovic Cinquin",
+        "title": "Directeur Général",
+        "company": "OCTO Technology",
+        "country": "FR",
+        "photoUrl": "../../images/people/lcinquin.jpg",
+        "bio": "Ludovic Cinquin is CEO France for the IT Management and Technologies consulting firm, OCTO Technology. He is also a regular speaker at corporate seminars and at OCTO’s annual USI event.<br>In addition to his managerial responsibilities, Ludovic oversees major accounts for strategic consulting assignments. His motto : ''Technology is a powerful engine for change that requires ever-evolving ways of working''.<br>A graduate of the Ecole Centrale de Paris and of the Technische Universität München, Ludovic is also co-author of several books, including OCTO’s most recent publication The Giants of the Web: Culture – Practices – Architecture.",
+        "tags": [
+            "Cloud", "Keynote", "DevOps"
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/lcinquin"
+            },
+            {
+                "name": "Blog",
+                "icon": "link",
+                "link": "http://blog.octo.com/author/lci/"
+            }
+        ]
+    },
+    {
+        "id": 34,
+        "featured": false,
+        "name": "Quentin Veyret",
+        "title": "Développeur Digital Lab",
+        "company": "gPartner",
+        "country": "FR",
+        "photoUrl": "../../images/people/qveyret.jpg",
+        "bio": "Quentin has been working for gPartner for 1 year as a consultant in the Digital Lab team. He develops innovative applications using technologies such as Google Maps, StreetView & Cardboard.",
+        "tags": [
+            "Web", "Firebase", "Google Maps"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/+QuentinVeyret-gPartner"
+            }
+        ]
+    },
+    {
+        "id": 35,
+        "featured": false,
+        "name": "Edouard Marquez",
+        "title": "Développeur",
+        "company": "Freelance",
+        "country": "FR",
+        "photoUrl": "../../images/people/emarquez.jpg",
+        "bio": "Développeur Android depuis la première heure, il ne jure que par Android depuis qu'il a reçu un bugdroid sur la tête (et cela fait bien moins mal qu'une pomme). Il est convaincu que le monde sera bientôt contrôlé par les bonhommes verts !",
+        "tags": [
+            "Android", "Android Wear", "Android TV"
+        ],
+        "badges": [
+            {
+                "name": "GDG",
+                "description": "PAUG Organizer",
+                "link": "http://www.paug.fr/"
+            }
+        ],
+        "socials": [
+            {
+                "name": "Twitter",
+                "icon": "app-icons:twitter",
+                "link": "https://twitter.com/g123k"
+            },
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/u/0/+EdouardMarquez"
+            }
+        ]
+    },
+    {
+        "id": 36,
+        "featured": false,
+        "name": "Jiqiong Qiu",
+        "title": "Data Scientist",
+        "company": "Sfeir",
+        "country": "FR",
+        "photoUrl": "../../images/people/jqiu.jpg",
+        "bio": "Jiqiong QIU est titulaire d’un doctorat en traitement de l’information et des systèmes à l’université de Compiègne. Elle est actuellement data scientist chez SFEIR. Elle travaille actuellement sur l’application de techniques de statistique et d’apprentissage dans le domaine de la santé et touchant aux objets connectés.",
+        "tags": [
+            "Machine Learning"
+        ],
+        "socials": [
+            {
+                "name": "Google+",
+                "icon": "app-icons:gplus",
+                "link": "https://plus.google.com/u/0/+JiqiongQiu/about"
+            },
+            {
+                "name": "Kaggle",
+                "icon": "link",
+                "link": "https://www.kaggle.com/qiujiqiong"
+            },
+            {
+                "name": "LinkedIn",
+                "icon": "link",
+                "link": "https://fr.linkedin.com/in/jiqiong-qiu-2101695b"
+            }
+        ]
+    }
+]

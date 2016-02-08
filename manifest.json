@@ -1,7 +1,7 @@
 {
     "lang": "en",
-    "name": "Women Techmakers Cluj-Napoca 2016",
-    "short_name": "WTM Cluj 2016",
+    "name": "DevFest Paris 2016",
+    "short_name": "DevFest Paris 2016",
     "icons": [{
         "src": "images/touch/icon-128x128.png",
         "sizes": "128x128"
@@ -14,6 +14,15 @@
     }, {
         "src": "images/touch/chrome-touch-icon-192x192.png",
         "sizes": "192x192"
+    }, {
+        "src": "images/touch/icon-256x256.png",
+        "sizes": "256x256"
+    },{
+        "src": "images/touch/icon-384x384.png",
+        "sizes": "384x384"
+    },{
+        "src": "images/touch/icon-512x512.png",
+        "sizes": "512x512"
     }],
     "start_url": "/#!/",
     "theme_color": "#00BCD4",

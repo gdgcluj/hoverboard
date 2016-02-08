@@ -1,172 +1,154 @@
 [{
-    "title": "General sponsor",
-    "logos": [{
-        "name": "Google",
-        "url": "https://www.google.com.ua/intl/en/about/",
-        "logoUrl": "../images/partners/google.svg"
-    }]
-}, {
-    "title": "Diamond sponsor",
-    "logos": [{
-        "name": "Malkos",
-        "url": "http://www.malkosua.com/",
-        "logoUrl": "../images/partners/corevalue.svg"
-    }]
-}, {
     "title": "Platinum sponsors",
     "logos": [{
-        "name": "N-IX",
-        "url": "http://n-ix.com/",
-        "logoUrl": "../images/partners/n-ix.svg"
+        "name": "Cirruseo",
+        "url": "http://www.cirruseo.com/",
+        "logoUrl": "../images/partners/cirruseo.png"
     }, {
-        "name": "DataArt",
-        "url": "http://www.dataart.com/",
-        "logoUrl": "../images/partners/dataart.svg"
+        "name": "Google",
+        "url": "https://www.google.fr/intl/en/about/",
+        "logoUrl": "../images/partners/google.svg"
     }, {
-        "name": "Eleks",
-        "url": "http://eleks.com/",
-        "logoUrl": "../images/partners/eleks.svg"
-    }, {
-        "name": "Twinfield",
-        "url": "http://twinfield.com/",
-        "logoUrl": "../images/partners/wolterskluwer.svg"
-    }, {
-        "name": "Sigma Software",
-        "url": "http://sigma.software/",
-        "logoUrl": "../images/partners/sigma.svg"
+        "name": "Pivotal",
+        "url": "https://pivotal.io/",
+        "logoUrl": "../images/partners/pivotal.png"
     }]
-}, {
-    "title": "Gift sponsors",
+  }, {
+    "title": "Gold sponsors",
     "logos": [{
-        "name": "Nic.ua",
-        "url": "http://nic.ua/",
-        "logoUrl": "../images/partners/nic.png"
-    },{
-        "name": "JetBrains",
-        "url": "https://www.jetbrains.com/",
-        "logoUrl": "../images/partners/jetbrains.svg"
-    },{
-        "name": "Shulga Massage",
-        "url": "http://shulga-massage.com/",
-        "logoUrl": "../images/partners/massage.png"
+        "name": "Genymobile",
+        "url": "http://www.genymobile.com/",
+        "logoUrl": "../images/partners/genymobile.png"
+    }, {
+        "name": "gPartner",
+        "url": "http://gpartner.eu/",
+        "logoUrl": "../images/partners/gPartner.png"
+    }, {
+        "name": "Intel",
+        "url": "http://www.intel.com/",
+        "logoUrl": "../images/partners/intel.png"
+    }, {
+        "name": "JFrog",
+        "url": "http://www.jfrog.com/",
+        "logoUrl": "../images/partners/jfrog.png"
+    }, {
+        "name": "Octo",
+        "url": "http://www.octo.com/",
+        "logoUrl": "../images/partners/octo.png"
+    }, {
+      "name": "Sfeir",
+      "url": "http://www.sfeir.com/",
+      "logoUrl": "../images/partners/sfeir.svg"
+    }, {
+        "name": "Viseo",
+        "url": "http://www.viseo.com/",
+        "logoUrl": "../images/partners/viseo.png"
+    }, {
+      "name": "Zenika",
+      "url": "http://www.zenika.com/",
+      "logoUrl": "../images/partners/zenika.png"
     }]
-}, {
-    "title": "Hosting partner",
+  }, {
+    "title": "Silver sponsors",
     "logos": [{
-        "name": "ibis",
-        "url": "http://www.ibisstyles.com/",
-        "logoUrl": "../images/partners/ibis.png"
+        "name": "D2SI",
+        "url": "http://www.d2-si.fr/",
+        "logoUrl": "../images/partners/d2si.png"
+    }, {
+        "name": "iAdvize",
+        "url": "http://www.iadvize.com/",
+        "logoUrl": "../images/partners/iAdvize.png"
+    }, {
+        "name": "Open",
+        "url": "http://www.open-groupe.com/",
+        "logoUrl": "../images/partners/open.png"
+    }, {
+        "name": "SII",
+        "url": "http://www.groupe-sii.com/",
+        "logoUrl": "../images/partners/sii.png"
     }]
-}, {
-    "title": "General partner",
+  }, {
+    "title": "Media partners",
     "logos": [{
-        "name": "Lviv IT Cluster",
-        "url": "http://itcluster.lviv.ua/",
-        "logoUrl": "../images/partners/itcluster.png"
+        "name": "Frandroid",
+        "url": "http://www.frandroid.com/",
+        "logoUrl": "../images/partners/frandroid.png"
+    }, {
+        "name": "Frenchweb",
+        "url": "http://www.frenchweb.fr/",
+        "logoUrl": "../images/partners/frenchweb.png"
+    }, {
+        "name": "Geeek.org",
+        "url": "http://www.geeek.org/",
+        "logoUrl": "../images/partners/geeek.png"
+    }, {
+        "name": "Maddyness",
+        "url": "http://www.maddyness.com/",
+        "logoUrl": "../images/partners/maddyness.png"
+    }, {
+        "name": "Programmez",
+        "url": "http://www.programmez.com/",
+        "logoUrl": "../images/partners/programmez.png"
+    }, {
+        "name": "StartupVillage",
+        "url": "http://www.startupvillage.fr/",
+        "logoUrl": "../images/partners/startupvillage.png"
     }]
-}, {
-    "title": "Production partner",
-    "logos": [{
-        "name": "and action",
-        "url": "http://and-action.net/",
-        "logoUrl": "../images/partners/and-action.svg"
-    }]
-}, {
-    "title": "Party partner",
-    "logos": [{
-        "name": "Arsenal Market",
-        "url": "http://club.arsenalmarket.lviv.ua/",
-        "logoUrl": "../images/partners/arsenal.svg"
-    }]
-}, {
-    "title": "Information partners",
-    "logos": [{
-        "name": "CoMMuna",
-        "url": "http://communa.net.ua/en/",
-        "logoUrl": "../images/partners/communa.png"
-    }, {
-        "name": "Symphony Solutions",
-        "url": "http://www.symphony-solutions.eu/",
-        "logoUrl": "../images/partners/symphony-solutions.png"
-    }, {
-        "name": "NETWORK",
-        "url": "http://network-ua.com/",
-        "logoUrl": "../images/partners/network.png"
-    }, {
-        "name": "career4it",
-        "url": "http://career4it.com/en/",
-        "logoUrl": "../images/partners/career4it.png"
-    }, {
-        "name": "LvivJs",
-        "url": "http://www.lvivjs.org.ua/",
-        "logoUrl": "../images/partners/lvivjs.png"
-    }, {
-        "name": "Hackraft",
-        "url": "http://hackraft.com/",
-        "logoUrl": "../images/partners/hackraft.svg"
-    }, {
-        "name": "Software Engineering 2015",
-        "url": "http://seconf.org.ua/",
-        "logoUrl": "../images/partners/se2015.png"
-    }, {
-        "name": "AfishaLviv",
-        "url": "http://afishalviv.net/",
-        "logoUrl": "../images/partners/afishalviv.png"
-    }, {
-        "name": "CyberBionic",
-        "url": "http://edu.cbsystematics.com/en/",
-        "logoUrl": "../images/partners/cyber-bionic.png"
-    }, {
-        "name": "ITVDN",
-        "url": "http://itvdn.com/en",
-        "logoUrl": "../images/partners/itvdn.png"
-    }, {
-        "name": "Root Nation",
-        "url": "http://root-nation.com/",
-        "logoUrl": "../images/partners/root-nation.png"
-    }, {
-        "name": "LITS",
-        "url": "http://lits.com.ua/",
-        "logoUrl": "../images/partners/lits.png"
-    }, {
-        "name": "Codeguida",
-        "url": "http://codeguida.com/",
-        "logoUrl": "../images/partners/codeguida.png"
-    }, {
-        "name": "LvivOnline",
-        "url": "http://lviv-online.com/",
-        "logoUrl": "../images/partners/lvivonline.png"
-    }, {
-        "name": "Startup Depot",
-        "url": "http://startupdepot.lviv.ua/en/",
-        "logoUrl": "../images/partners/startup-depot.png"
-    }, {
-        "name": "Be Sparkle",
-        "url": "http://be-sparkle.com/",
-        "logoUrl": "../images/partners/be-sparkle.png"
-    }, {
-        "name": "ITEA",
-        "url": "http://itea.ua/",
-        "logoUrl": "../images/partners/itea.png"
-    }, {
-        "name": "DevCom",
-        "url": "http://devcom.com/",
-        "logoUrl": "../images/partners/devcom.svg"
-    }, {
-        "name": "Droidcon Krarow",
-        "url": "http://droidcon.pl/",
-        "logoUrl": "../images/partners/droidcon.png"
-    }, {
-        "name": "PHP Frameworks Day",
-        "url": "http://frameworksdays.com/",
-        "logoUrl": "../images/partners/phpday_logo.png"
-    }, {
-        "name": "SoftServe",
-        "url": "http://www.softserveinc.com/",
-        "logoUrl": "../images/partners/softserve.svg"
-    }, {
-        "name": "Garage48",
-        "url": "http://garage48.org/events/garage48-lviv",
-        "logoUrl": "../images/partners/garage48.png"
-    }]
+  }, {
+    "title": "Community partners",
+    "logos": [
+      {
+        "name": "dotConferences",
+        "url": "http://www.dotconferences.eu/",
+        "logoUrl": "../images/partners/dotconferences.png"
+      }, {
+        "name": "Duchess France",
+        "url": "http://www.duchess-france.org/",
+        "logoUrl": "../images/partners/duchess.svg"
+      }, {
+        "name": "GDG Lille",
+        "url": "http://www.meetup.com/fr-FR/GDG-Lille/",
+        "logoUrl": "../images/partners/gdglille.png"
+      }, {
+        "name": "GDG Nantes",
+        "url": "http://www.meetup.com/fr-FR/GDG-Nantes/",
+        "logoUrl": "../images/partners/gdgnantes.png"
+      }, {
+        "name": "Google Polymer Paris",
+        "url": "http://www.meetup.com/fr-FR/Google-Polymer-Paris/",
+        "logoUrl": "../images/partners/polymerparis.png"
+      }, {
+        "name": "iTeam",
+        "url": "http://iteam.org/",
+        "logoUrl": "../images/partners/iteam.png"
+      }, {
+        "name": "Paris Datageeks",
+        "url": "http://www.meetup.com/fr-FR/Paris-Datageeks/",
+        "logoUrl": "../images/partners/paris_datageeks.jpg"
+      }, {
+        "name": "Paris Java User Group",
+        "url": "http://www.parisjug.org/",
+        "logoUrl": "../images/partners/jug.png"
+      }, {
+        "name": "paris-webComponents",
+        "url": "http://www.meetup.com/fr-FR/paris-webComponents/",
+        "logoUrl": "../images/partners/webcomponents.jpg"
+      }, {
+        "name": "PAUG",
+        "url": "http://www.paug.fr/",
+        "logoUrl": "../images/partners/paug.jpg"
+      }, {
+        "name": "SoCraTes-FR",
+        "url": "http://socrates-fr.github.io/",
+        "logoUrl": "../images/partners/socrates.png"
+      }, {
+        "name": "TAUG",
+        "url": "http://www.meetup.com/fr-FR/Toulouse-Android-User-Group/",
+        "logoUrl": "../images/partners/taug.jpg"
+      }, {
+        "name": "webRTC Paris",
+        "url": "http://www.meetup.com/fr-FR/webrtc-paris/",
+        "logoUrl": "../images/partners/webrtc.jpg"
+      }
+    ]
 }]

@@ -18,11 +18,15 @@
             },
             sessionsSource: {
                 type: String,
-                value: '../../data/sessions.json'
+                value: function(){
+                    return '../../data/' + window.I18nMsg.lang + '/sessions.json';
+                }
             },
             postsSource: {
                 type: String,
-                value: '../../data/blog.json'
+                value: function(){
+                    return '../../data/' + window.I18nMsg.lang + '/blog.json';
+                }
             },
             partnersSource: {
                 type: String,

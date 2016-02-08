@@ -21,6 +21,12 @@
             app.smoothScroll(pricetable, 0);
         });
 
+        page('/code-of-conduct', function() {
+            trackPageview('/code-of-conduct');
+            app.route = 'code-of-conduct';
+            app.scrollToTop();
+        });
+
         page('/blog', function() {
             trackPageview('/blog');
             app.route = 'blog';
@@ -62,12 +68,6 @@
         page('/contact', function() {
             trackPageview('/contact');
             app.route = 'contact';
-            app.scrollToTop();
-        });
-
-        page('/code-of-conduct', function() {
-            trackPageview('/code-of-conduct');
-            app.route = 'code-of-conduct';
             app.scrollToTop();
         });
 

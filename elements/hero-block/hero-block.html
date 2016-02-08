@@ -108,22 +108,34 @@
         </style>
         <div id="hero">
             <div class="container flex relative">
+
                 <paper-toolbar>
                     <paper-icon-button class="menu-toggle" icon="menu" on-tap="togglePanel"></paper-icon-button>
                     <div class="flex hidden-xs">
                         <a data-route="home" href="/" hidden$="{{hideLogo}}">
-                            <img class="logo" src="../../images/logo-white.svg" alt="GDG DevFest 2015">
+                            <img class="logo" src="../../images/logo-white.svg" alt="DevFest Paris 2016">
                         </a>
                     </div>
+
+                    <!--
+                    <paper-dropdown-menu label="Your favourite pastry">
+                      <paper-listbox class="dropdown-content" attr-for-selected="lang" selected="{{selectedLanguage}}">
+                          <template is="dom-repeat" items="[[languages]]" as="language" >
+                            <paper-item lang="[[language.value]]">[[language.label]]</paper-item>
+                          </template>
+                      </paper-listbox>
+                    </paper-dropdown-menu>
+                    -->
+
                     <paper-tabs class="hidden-xs" attr-for-selected="data-route" selected="{{route}}">
+                      <paper-tab class="text-u-c" link>
+                          <a data-route="home" href="/" class="nav-link horizontal center-center layout">
+                              Home
+                          </a>
+                      </paper-tab>
                         <paper-tab class="text-u-c" link>
                             <a data-route="blog" href="#!/blog" class="nav-link horizontal center-center layout">
                                 Blog
-                            </a>
-                        </paper-tab>
-                        <paper-tab class="text-u-c" link>
-                            <a data-route="schedule" href="#!/schedule" class="nav-link horizontal center-center layout">
-                                Schedule
                             </a>
                         </paper-tab>
                         <paper-tab class="text-u-c" link>
@@ -131,9 +143,29 @@
                                 Speakers
                             </a>
                         </paper-tab>
-                        <!-- <paper-tab class="text-u-c">
+                        <paper-tab class="text-u-c" link>
+                            <a data-route="schedule" href="#!/schedule" class="nav-link horizontal center-center layout">
+                                <i18n-msg msgid="schedule">
+                                    Schedule
+                                </i18n-msg>
+                            </a>
+                        </paper-tab>
+                        <paper-tab class="text-u-c" link>
+                            <a data-route="home" href="/" onclick="window.I18nMsg.lang='en'" class="nav-link horizontal center-center layout">
+                                English
+                            </a>
+                        </paper-tab>
+                        <paper-tab class="text-u-c" link>
+                            <a data-route="home" href="/" onclick="window.I18nMsg.lang='fr'" class="nav-link horizontal center-center layout">
+                                Français
+                            </a>
+                        </paper-tab>
+                        <!--
+                        <paper-tab class="text-u-c">
                             <a data-route="contact" href="#!/contact" class="nav-link horizontal center-center layout">Contact</a>
-                        </paper-tab> -->
+                        </paper-tab>
+                        -->
+
                     </paper-tabs>
                 </paper-toolbar>
                 <content></content>
@@ -150,6 +182,23 @@
             route: {
                 type: String,
                 notify: true
+            },
+            selectedLanguage: {
+                type: String,
+                notify: true,
+                value: window.I18nMsg.lang
+            },
+            languages: {
+                type: Array,
+                value: [
+                    {
+                        label: 'English',
+                        value: 'en'
+                    },{
+                        label: 'French',
+                        value: 'fr'
+                    }
+                ]
             }
         },
         togglePanel: function() {
